@@ -1,0 +1,16 @@
+select
+p.codigo as referencia, p.ncm as codigoNCM, p.cest as codigoCEST, p.descricao as nome, p.unidade_venda as idUnidade,
+e.estoque as estoqueAtual,
+icdb.codigo_barra as gtin,
+ldp.descricao as observacao,
+tdp.custo_base as valorCusto, tdp.preco01 as valorVenda
+FROM itens_de_estoque p
+left join estoques e
+on p.codigo = e.codigo
+left join itens_codigos_de_barra icdb 
+on p.codigo = icdb.codigo
+left join linhas_de_produtos ldp 
+on ldp.linha_p = p.linha_p
+left join tabela_de_precos tdp 
+on tdp.codigo = p.codigo;
+

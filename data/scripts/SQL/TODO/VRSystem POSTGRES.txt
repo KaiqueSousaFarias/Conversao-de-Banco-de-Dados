@@ -1,0 +1,69 @@
+//FORNECEDOR
+SELECT f.id as observacao, razaosocial as nome, endereco as logradouro, bairro, m.descricao, cep, e.descricao, telefone as telefoneComercial, inscricaoestadual, cnpj, numero, complemento
+FROM public.fornecedor as f
+left join public.municipio as m
+on f.id_municipio = m.id 
+left join public.estado e
+on f.id_estado = e.id;
+
+//CLIENTE
+SELECT c.id as observacao, nome, endereco as logradouro, bairro, m.descricao, cep, e.descricao, telefone as telefoneComercial, inscricaoestadual, cnpj, numero, complemento
+FROM public.clienteeventual as c
+left join public.municipio as m
+on c.id_municipio = m.id 
+left join public.estado e
+on c.id_estado = e.id;
+
+//PRODUTO
+SELECT DISTINCT ON (p.id)
+    p.id AS referencia,
+    COALESCE((SELECT produtoautomacao.codigobarras
+              FROM produtoautomacao
+              WHERE produtoautomacao.id_produto = p.id
+                AND length(produtoautomacao.codigobarras::character varying::text) <= 13
+                AND length(produtoautomacao.codigobarras::character varying::text) >= 7
+              LIMIT 1), 0::numeric)::bigint AS gtin,
+    p.descricaocompleta AS nome,
+    COALESCE((to_char(p.ncm1, 'FM0000') || to_char(p.ncm2, 'FM00') || to_char(p.ncm3, 'FM00')), '00000000') AS codigoncm,
+    m1.descricao AS observacao,
+    m2.descricao AS descricaopdv,
+    COALESCE((((to_char(c.cest1, 'FM00') || to_char(c.cest2, 'FM000')) || to_char(c.cest3, 'FM00'))), '0000000') AS codigocest,
+    ad.situacaotributaria AS idFiscal, -- Exemplo de campo CST
+        round(pc.precovenda, 2) AS valorVenda,
+    CASE un.descricao
+    WHEN 'UN' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16
+	ELSE 1
+	END AS idUnidade
+FROM produto p
+JOIN produtoaliquota pa ON pa.id_produto = p.id AND pa.id_estado = 33
+LEFT JOIN pautafiscal pf ON pf.ncm1 = p.ncm1 AND pf.ncm2 = p.ncm2 AND pf.ncm3 = p.ncm3 AND pa.excecao = pf.excecao AND pf.id_estado = 33
+LEFT JOIN cest c ON c.id = p.id_cest
+JOIN aliquota ad ON ad.id = pa.id_aliquotadebito
+JOIN aliquota ac ON ac.id = pa.id_aliquotaconsumidor
+JOIN mercadologico m1 ON m1.mercadologico1 = p.mercadologico1 AND m1.nivel = 1
+JOIN mercadologico m2 ON m2.mercadologico1 = p.mercadologico1 AND m2.mercadologico2 = p.mercadologico2 AND m2.nivel = 2
+JOIN mercadologico m3 ON m3.mercadologico1 = p.mercadologico1 AND m3.mercadologico2 = p.mercadologico2 AND m3.mercadologico3 = p.mercadologico3 AND m3.nivel = 3
+LEFT JOIN produtoaliquotabeneficio pabendeb ON pabendeb.id_produtoaliquota = pa.id AND pabendeb.id_aliquota = ad.id
+LEFT JOIN codigobeneficiocst bendeb ON bendeb.id = pabendeb.id_beneficio
+LEFT JOIN aliquota adp ON adp.id = pf.id_aliquotadebito
+LEFT JOIN produtoaliquotabeneficio pabencon ON pabencon.id_produtoaliquota = pa.id AND pabencon.id_aliquota = ac.id
+LEFT JOIN codigobeneficiocst bencon ON bencon.id = pabencon.id_beneficio
+LEFT JOIN produtocomplemento pc ON pc.id_produto = p.id AND pc.id_situacaocadastro = 1
+LEFT JOIN tipoembalagem un ON p.id_tipoembalagem = un.id
+ORDER BY p.id;
+

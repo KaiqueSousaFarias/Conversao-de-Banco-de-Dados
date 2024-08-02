@@ -1,0 +1,165 @@
+SELECT p.[Codigo] AS referencia
+      ,UPPER(p.[Nome]) AS nome
+      ,ci.[Nome] AS idFiscal
+      ,p.[NCM] AS codigoNCM
+      ,p.[Inativo] AS produtoInativo
+      ,p.[Custo1] AS valorCusto
+      ,pp.[Preco] AS valorVenda
+      ,cest.[Codigo] AS codigoCEST
+      ,u.Nome AS idUnidade
+      ,[Codigo_EAN] AS gtin
+	  ,e.Qtde AS estoqueAtual
+FROM Estoque_Atual AS e
+LEFT JOIN produto AS p
+ON e.Produto__Ide=p.Ide
+LEFT JOIN ProdutoPreco AS pp
+ON e.[Produto__Ide]=pp.[Produto__Ide]
+LEFT JOIN [UnidadeMedida] AS u
+ON u.Ide = p.Unidade_Venda__Ide
+LEFT JOIN CEST
+ON cest.Ide = p.CEST
+LEFT JOIN [ClasseImposto] AS ci
+ON p.ClasseImposto__Ide = ci.Ide
+WHERE pp.[TabelaPreco__Ide]='11627049-F321-42DE-A3ED-4101BADDBC32'
+****************************
+
+SELECT p.[Codigo] AS referencia
+      ,UPPER(p.[Nome]) AS nome
+      ,p.[Classe_Imposto] AS idFiscal
+      ,p.[NCM] AS codigoNCM
+      ,p.[Inativo] AS produtoInativo
+      ,p.[Custo1] AS valorCusto
+      ,pp.[Preco] AS valorVenda
+      ,cest.[Codigo] AS codigoCEST
+      ,u.Descricao AS idUnidade
+      ,[Codigo_EAN] AS gtin
+	  ,e.Qtde AS estoqueAtual
+FROM Estoque_Atual AS e
+LEFT JOIN produto AS p
+ON e.Produto__Ide=p.Ide
+LEFT JOIN ProdutoPreco AS pp
+ON e.[Produto__Ide]=pp.[Produto__Ide]
+LEFT JOIN [Unidades] AS u
+ON u.Ide = p.Unidade_Venda__Ide
+LEFT JOIN CEST
+ON cest.Ide = p.CEST
+WHERE pp.[TabelaPreco__Ide]='11627049-F321-42DE-A3ED-4101BADDBC32'
+
+
+SELECT [Nome]
+      ,[Tipo]
+      ,[Fantasia] AS nomeFantasia
+      ,[Endereco] AS logradouro
+      ,[Numero]
+      ,[Complemento]
+      ,[Bairro]
+      ,[Cidade]
+      ,[UF]
+      ,[CEP]
+      ,[CNPJ]
+      ,[Inscricao]
+      ,[Obs]
+      ,[Fone1] AS telefoneComercial
+      ,[Fone2] AS celularComercial
+      ,[Email] AS emailComercial
+      ,[Contato]
+      ,[Nascimento]
+      ,[Inativo]
+      ,[Bloqueado]
+      ,[DataCadastro]
+      ,[CadastradoPor]
+      ,[DataAlteracao]
+      ,[AlteradoPor]
+      ,[Tipo_IE]
+      ,[Nao_Mala_Direta]
+      ,[DataLembrete]
+      ,[NomeContador]
+      ,[EmailContador]
+      ,[Tabela_Obrigatoria__Ide]
+      ,[Ide]
+      ,[Id]
+      ,[Limite_Credito]
+      ,[Dia_Base]
+      ,[PontoReferencia]
+      ,[Pais__Ide]
+      ,[Passaporte]
+      ,[Desc_Percentual]
+      ,[Veiculo__Ide]
+      ,[Cadastrado_Por__Ide]
+      ,[Alterado_Por__Ide]
+      ,[Vendedor_Obrigatorio__Ide]
+      ,[Frete_Conta]
+      ,[Frete_Valor]
+      ,[Frete_Perc]
+      ,[Classe]
+      ,[Subclasse]
+      ,[Grupo]
+      ,[Familia]
+      ,[Marca]
+      ,[Area_Impressao]
+      ,[Classificacao_Mercadologica]
+      ,[Classe_Imposto]
+      ,[Indicador_Escala]
+      ,[TipoArredondamento]
+      ,[ValorArredondamento]
+      ,[SituacaoSpc]
+      ,[CodigoConsultaSpc]
+      ,[DataConsultaSpc]
+      ,[DataValidadeConsultaSpc]
+      ,[Salario]
+      ,[Status]
+      ,[InscricaoEstadualPf]
+      ,[ObsFinanceiro]
+      ,[IdMercos]
+      ,[IdIfood]
+      ,[CodigoCcmPedido]
+      ,[InscricaoMunicipal]
+      ,[Comissao]
+      ,[FiliacaoPai]
+      ,[FiliacaoMae]
+      ,[OsIdentificador1]
+      ,[Foto__Relacionado__Ide]
+      ,[Sexo]
+      ,[Profissao]
+      ,[EmpresaTrabalho]
+      ,[Cargo]
+      ,[Admissao]
+  FROM [dbo].[Cli_For]
+
+
+
+
+
+
+
+
+
+
+SELECT p.[Codigo] AS referencia
+      ,UPPER(p.[Nome]) AS nome
+      ,CASE f.Nome
+		  WHEN 'Tributado' THEN 1
+		  WHEN 'Substituição tributária' THEN 2
+		  WHEN 'Isento' THEN 3
+		END
+	  AS idFiscal
+      ,p.[NCM] AS codigoNCM
+      ,p.[Inativo] AS produtoInativo
+      ,p.[Custo1] AS valorCusto
+      ,pp.[Preco] AS valorVenda
+      ,cest.[Codigo] AS codigoCEST
+      ,u.Descricao AS idUnidade
+      ,[Codigo_EAN] AS gtin
+	  ,e.Qtde AS estoqueAtual
+FROM Estoque_Atual AS e
+LEFT JOIN produto AS p
+ON e.Produto__Ide=p.Ide
+LEFT JOIN ProdutoPreco AS pp
+ON e.[Produto__Ide]=pp.[Produto__Ide]
+LEFT JOIN [Unidades] AS u
+ON u.Ide = p.Unidade_Venda__Ide
+LEFT JOIN CEST
+ON cest.Ide = p.CEST
+LEFT JOIN ClasseImposto AS f
+ON f.Ide = p.ClasseImposto__Ide
+WHERE pp.[TabelaPreco__Ide]='11627049-F321-42DE-A3ED-4101BADDBC32'

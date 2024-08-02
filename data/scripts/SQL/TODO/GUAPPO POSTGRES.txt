@@ -1,0 +1,5 @@
+SELECT m.codigo as referencia, codigogeral as gtin, descricao as nome, p.precocustounitario as valorCusto, p.precovendaunitario,
+deolhonoimposto as codigoncm, cest as codigoCEST, csticms as idFiscal
+FROM mercadorias m INNER JOIN tabelasprecomercadoria p
+ON m.codigo = p.mercadoria
+WHERE inativo = false;

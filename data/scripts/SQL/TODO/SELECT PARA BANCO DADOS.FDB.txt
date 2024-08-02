@@ -1,0 +1,36 @@
+PRODUTOS
+
+SELECT
+codigo AS referencia,
+codbarra AS gtin,
+descricao AS nome,
+unidade AS idunidade,
+pr_custo AS valorcusto,
+pr_venda AS valorvenda,
+qtd_atual AS estoqueatual,
+csosn AS idfiscal,
+ncm AS codigoNCM,
+cest AS codigoCEST
+FROM produto
+ORDER BY codigo;
+
+CLIENTES
+
+SELECT
+razao AS nome,
+FANTASIA AS nomeFantasia,
+cnpj,
+ie AS inscricaoEstadual,
+fantasia AS nomeFantasia,
+endereco AS logradouro,
+codmun AS codigoIBGE,
+municipio AS cidade,
+bairro,
+uf,
+cep,
+fone1 AS telefoneComercial,
+fone2 AS telefoneResidencial,
+celular1 AS celularComercial,
+email1 AS emailComercial,
+whatsapp AS celularPessoal
+FROM pessoa;

@@ -1,0 +1,14 @@
+SELECT
+	p.COD_INTERNO as referencia,
+	p.COD_BARRAS as gtin,
+	p.DESCRICAO_COMPLETA as nome,
+	p.UNIDADE as idUnidade,
+	p.QTD_ATUAL as estoqueAtual,
+	p.GRUPO as idSetor,
+	p.NCM as codigoNCM,
+	p.CEST as codigoCEST,
+	p.ATIVO AS produtoInativo,
+	p.PRECO_CUSTO as valorCusto,
+	p.PRECO_VENDA as valorVenda,
+	p.CSOSN_NFE as idFiscal
+FROM PRODUTOS AS p

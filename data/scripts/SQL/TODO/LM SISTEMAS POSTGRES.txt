@@ -1,0 +1,4 @@
+SELECT cli_002 as nome, cli_007 as logradouro, cli_008 as numero, cli_009 as complemento, cep_004 as logradouro, cep_003 as cidade, cli_012 as contato, uf FROM clientes;
+
+
+SELECT mat_001 as referencia, mat_003 as nome, mat_004 as gtin, uni_001 as idUnidade, mat_008 as valorVenda, ncm as codigoncm, cso_codigo as idFiscal, cest as codigoCEST FROM materiais;

@@ -1,0 +1,22 @@
+/****** Script do comando SelectTopNRows de SSMS  ******/
+
+//PRODUTOS
+
+SELECT [CODTRIB] AS idFiscal
+      ,[CODPROD] AS referencia
+      ,[BARRA] AS gtin
+      ,[UNIDADE] AS idUnidade
+      ,[DESCRICAO] AS nome
+      ,[DESC_PDV] AS descricaoResumida
+      ,[ESTOQUE] AS estoqueAtual
+      ,[PRECO_UNIT] AS valorVenda
+      ,[PRECO_CUST] AS valorCusto
+      ,[OBS] AS observacao
+      ,[CODNCM] AS codigoNCM
+      ,[ID]
+      ,[CODCEST]
+  FROM [GWOLAP].[dbo].[PRODUTOS]
+ WHERE [ATIVO] = 'S';
+
+//PESSOAS
+

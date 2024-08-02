@@ -1,0 +1,10 @@
+SELECT i.CODIGO, i.DESCRICAO, i.CODIGO_BARRAS AS gtin,
+CASE i."UNIDADE"
+WHEN 'UNID' THEN 1
+WHEN 'KG' THEN 2
+END AS idUnidade, i.NCM AS codigoNCM, i.CEST AS codigoCEST, i.PRECO_CUSTO AS valorCusto, i.PRECO_VENDA AS valorVenda,
+CASE i.ATIVO
+WHEN 'S' THEN 0
+WHEN 'N' THEN 1
+END AS produtoInativo, i.ESTOQUE AS estoqueAtual
+FROM ITENS AS i

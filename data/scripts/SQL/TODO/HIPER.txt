@@ -1,0 +1,112 @@
+-------------------------
+
+//PRODUTO
+SELECT p.id_produto AS gtin,
+       p.nome,
+       p.preco_custo AS valorcusto,
+       p.preco_venda AS valorvenda,
+       p.id_ncm AS codigoNCM,
+       cest.codigo AS codigoCEST,
+	   e.quantidade
+FROM produto AS p
+LEFT JOIN CEST ON p.cestId = cest.Id
+LEFT JOIN saldo_estoque AS e ON p.id_produto = e.id_produto;
+
+//CODIGO AUXILIAR
+SELECT ps.id_produto AS idParaCarga
+      ,ps.codigo_barras AS gtin
+	  ,p.nome
+      ,p.preco_custo AS valorcusto,
+       p.preco_venda AS valorvenda
+  FROM produto_sinonimo AS ps 
+  LEFT JOIN produto AS p ON p.id_produto = ps.id_produto;
+
+-------------------------
+-------------------------
+-------------------------
+-------------------------
+-------------------------
+-------------------------
+-------------------------
+-------------------------
+-------------------------
+-------------------------
+
+//PRODUTO
+
+SELECT p.id_produto AS gtin,
+       p.nome,
+       se.quantidade AS estoqueAtual,
+       p.preco_custo AS valorcusto,
+       p.preco_venda AS valorvenda,
+       p.id_ncm AS codigoNCM,
+       p.codigo_cest AS codigoCEST,
+       stsn.codigo_situacao_operacao_simples_nacional AS FiscalCSOSN,
+       stsn.nome AS InfoFiscalCSOSN,
+       sti.codigo_situacao_tributaria AS FiscalCST,
+       sti.nome AS InfoFiscalCST
+FROM produto AS p
+LEFT JOIN saldo_estoque AS se ON p.id_produto = se.id_produto
+LEFT JOIN regra_tributacao_produto AS rtp ON p.id_produto = rtp.id_produto
+LEFT JOIN situacao_tributaria_icms AS sti ON rtp.id_regra_tributacao = sti.id_situacao_tributaria_icms
+LEFT JOIN situacao_tributaria_simples_nacional AS stsn ON rtp.id_situacao_tributaria_simples_nacional = stsn.id_situacao_tributaria_simples_nacional;
+
+//CODIGO AUXILIAR
+
+SELECT ps.id_produto AS idParaCarga
+      ,ps.codigo_barras AS gtin
+	  ,p.nome
+      ,p.preco_custo AS valorcusto,
+       p.preco_venda AS valorvenda
+  FROM produto_sinonimo AS ps 
+  LEFT JOIN produto AS p ON p.id_produto = ps.id_produto;
+
+
+//TRATAMENTO
+
+UPDATE codigosauxiliares SET alterado = ',', fatorMultiplicacao = 1, total = valorVenda, idUnidade = 1, codigoSimples = 1;
+UPDATE codigosauxiliares SET MARKUP = ((valorVenda / Round(valorCusto,2)) * 100) - 100;
+UPDATE codigosauxiliares SET MARKUP = 0 WHERE MARKUP IS NULL OR MARKUP = '';
+UPDATE codigosauxiliares SET descricaoAuxiliar = trim(UPPER(descricaoAuxiliar));
+
+
+//LIGAR TABELAS
+
+UPDATE codigosauxiliares AS C
+INNER JOIN PRODUOTOS AS P
+ON C.idParaCarga = P.gtin
+SET C.produtosBean_id = P.codigoInterno;
+
+
+//FINAL
+UPDATE codigosauxiliares SET idParaCarga = produtosBean_id;
+
+
+//
+SELECT p.id_produto AS gtin,
+       p.nome,
+       p.preco_custo AS valorcusto,
+       p.preco_venda AS valorvenda,
+       p.id_ncm AS codigoNCM,
+       cest.codigo AS codigoCEST,
+	   e.quantidade as estoqueAtual,
+	   hp.nome as observacao,
+	   CASE p.id_unidade_medida 
+	   WHEN 12 then 1
+	   WHEN 13 THEN 16
+	   WHEN 14 THEN 1
+	   WHEN 15 THEN 1
+	   WHEN 16 THEN 10
+	   WHEN 17 THEN 1
+	   WHEN 18 THEN 1
+	   WHEN 19 THEN 1
+	   WHEN 20 THEN 4
+	   WHEN 21 THEN 2
+	   WHEN 22 THEN 3
+	   ELSE 1
+	   END
+	   as idUnidade
+FROM produto AS p
+LEFT JOIN CEST ON p.cestId = cest.Id
+LEFT JOIN hierarquia_produto AS hp ON p.id_hierarquia_produto = hp.id_hierarquia_produto
+LEFT JOIN saldo_estoque AS e ON p.id_produto = e.id_produto;

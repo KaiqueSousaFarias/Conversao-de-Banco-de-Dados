@@ -1,0 +1,66 @@
+PRODUTOS
+
+SELECT
+ P.CODIGO,
+ CONCAT(P.NOME,' ',MC.NOME) NOME,
+ DP.NOME SETOR,
+ P.UNIDADE,
+ P.CBARRA,
+ PL.EST_MINIM,
+ PL.PCO_COMPRA,
+ PL.PCO_REMAR,
+ PL.EST_ATUAL,
+ PL.PCO_DIFERIDO,
+ PL.PRECO_LIQUIDO,
+ P.COD_CSTTRIBICMS,
+ P.CODIGO_NCM,
+ P.COD_CEST
+FROM PRODUTOS P WITH (NOLOCK),
+PRODLOJAS PL WITH (NOLOCK),
+MARCAS MC WITH (NOLOCK),
+DEPTO DP WITH (NOLOCK)
+WHERE (P.CODIGO = PL.CODIGO) AND (P.MARCA = MC.CODIGO) AND (P.CDEPTO = DP.CODIGO) AND PL.ATIVO = 'S';
+
+PESSOAS
+
+USE [NSYSGDB]
+GO
+
+SELECT
+      [NOME]
+      ,[RAZAO] nomeFantasia
+      ,[FONE] telefoneComercial
+      ,[CONTATO]
+      ,[EMAIL] emailComercial
+      ,[ENDERECO] logradouro
+      ,[CEP]
+      ,[BAIRRO]
+      ,[CIDADE]
+      ,[ESTADO]
+      ,[INS_RG] inscricaoEstadual
+      ,[CGC_CPF] cnpj
+  FROM [dbo].[CLIENTES]
+
+GO
+
+USE [NSYSGDB]
+GO
+
+SELECT 
+	   [NOME]
+      ,[RAZAO] nomeFantasia
+      ,[FONE] telefoneComercial
+      ,[ENDERECO] logradouro
+      ,[CEP]
+      ,[BAIRRO]
+      ,[CIDADE]
+      ,[ESTADO]
+      ,[INSCR] inscricaoEstadual
+      ,[CGC] cnpj
+  FROM [dbo].[CADFOR]
+
+GO
+
+
+
+

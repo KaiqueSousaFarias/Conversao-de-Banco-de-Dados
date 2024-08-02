@@ -1,0 +1,53 @@
+/****** PRODUTOS  ******/
+SELECT [controle] observacao
+      ,[codigo] AS referencia
+      ,[produto] AS nome
+      ,[precocusto] AS valorCusto
+      ,[precovenda] AS valorVenda
+      ,[quantidade] AS estoqueAtual
+      ,CASE [unidade]
+		WHEN 'UN' THEN 1
+		WHEN 'KG' THEN 2
+		WHEN 'LT' THEN 3
+		WHEN 'CX' THEN 4
+		WHEN 'DZ' THEN 5
+		WHEN 'FD' THEN 6
+		WHEN 'GL' THEN 7
+		WHEN 'GR' THEN 8
+		WHEN 'BD' THEN 9
+		WHEN 'MT' THEN 10
+		WHEN 'M2' THEN 11
+		WHEN 'M3' THEN 12
+		WHEN 'MG' THEN 13
+		WHEN 'ML' THEN 14
+		WHEN 'MM' THEN 15
+		WHEN 'PC' THEN 16
+	  END
+	  AS idUnidade
+      ,CASE [cst]
+	  WHEN 102 THEN 1
+	  WHEN 500 THEN 2
+	  WHEN 300 THEN 3
+	  END
+	  AS idFiscal
+      ,[cean] AS gtin
+	  ,[codipi] AS codigoNCM
+      ,[cest] AS codigoCEST
+  FROM [dbo].[TABEST1]
+
+
+/****** CLIENTES  ******/
+SELECT [nome]
+      ,[endereco] AS logradouro
+      ,[endnumero] AS numero
+      ,[endcomplemento] AS complemento
+      ,[bairro]
+      ,[cidade]
+      ,[estado] AS uf
+      ,[cep]
+      ,[telefone] AS telefoneComercial
+      ,[celular] AS celularPessoal
+      ,[email] AS emailComercial
+      ,[cgc] AS cnpj
+      ,[insc] AS inscricaoEstadual
+  FROM [SICNET].[dbo].[TABCLI]

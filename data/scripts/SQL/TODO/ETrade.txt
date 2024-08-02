@@ -1,0 +1,80 @@
+PESOAS
+
+/****** Script do comando SelectTopNRows de SSMS  ******/
+SELECT [Codigo] AS observacao
+      ,[Nome]
+      ,[Fantasia] AS nomeFantasia
+      ,[Endereco] AS logradouro
+      ,[Numero]
+      ,[Complemento]
+      ,[Bairro]
+      ,[Cidade]
+      ,[UF]
+      ,[CEP]
+      ,[CNPJ]
+      ,[Inscricao] AS inscricaoEstadual
+      ,[Fone1] AS contato
+      ,[Email] AS emailComercial
+  FROM [ETrade].[dbo].[Cli_For]
+
+PRODUTOS
+
+/****** Script do comando SelectTopNRows de SSMS  ******/
+SELECT p.[Codigo] AS referencia
+      ,p.[Nome]
+      ,p.[NCM] AS codigoNCM
+      ,p.[Custo1] AS valorCusto
+	  ,valor.Preco AS valorVenda
+      ,[CEST].Codigo AS codigoCEST
+	  ,CASE un.[Unidade]
+		WHEN 'UN' THEN 1
+		WHEN 'KG' THEN 2
+		WHEN 'LT' THEN 3
+		WHEN 'LITRO' THEN 3
+		WHEN 'CX' THEN 4
+		WHEN 'CX20' THEN 4
+		WHEN 'CX5' THEN 4
+		WHEN 'CX2' THEN 4
+		WHEN 'CX25' THEN 4
+		WHEN 'CX15' THEN 4
+		WHEN 'CX3' THEN 4
+		WHEN 'CX10' THEN 4
+		WHEN 'CX100' THEN 4
+		WHEN 'DZ' THEN 5
+		WHEN 'DUZIA' THEN 5
+		WHEN 'FD' THEN 6
+		WHEN 'FARDO' THEN 6
+		WHEN 'GL' THEN 7
+		WHEN 'GR' THEN 8
+		WHEN 'GF' THEN 8
+		WHEN 'BD' THEN 9
+		WHEN 'BALDE' THEN 9
+		WHEN 'MT' THEN 10
+		WHEN 'M' THEN 10
+		WHEN 'M2' THEN 11
+		WHEN 'M3' THEN 12
+		WHEN 'MG' THEN 13
+		WHEN 'GRAMA' THEN 13
+		WHEN 'ML' THEN 14
+		WHEN 'MM' THEN 15
+		WHEN 'PC' THEN 16
+		WHEN 'PACOTE' THEN 16
+		ELSE 1
+		END
+		AS idUnidade
+      ,p.[Codigo_EAN] AS gtin
+      ,p.[Ide] AS observacao
+      ,csosn.codigo AS idFiscal
+	  ,qtd.Qtde AS estoqueAtual
+  FROM [ETrade].[dbo].[Produto] AS p
+  LEFT JOIN [ETrade].[dbo].[ClasseImposto] AS csosn
+  ON p.[ClasseImposto__Ide] = csosn.Ide
+  LEFT JOIN [ETrade].[dbo].[Unidades] AS un
+  ON p.Unidade_Venda__Ide = un.Ide
+  LEFT JOIN [ETrade].[dbo].[CEST]
+  ON p.CEST = CEST.Ide
+  LEFT JOIN [ETrade].[dbo].[Estoque_Atual] AS qtd
+  ON p.Ide = qtd.Produto__Ide
+  LEFT JOIN [ETrade].[dbo].[ProdutoPreco] AS valor
+  ON p.ide = valor.Produto__Ide
+  WHERE p.[Inativo] = 0 AND valor.TabelaPreco__Ide = '11627049-F321-42DE-A3ED-4101BADDBC32';

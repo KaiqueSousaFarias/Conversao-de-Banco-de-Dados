@@ -1,0 +1,162 @@
+
+***********************************
+PRODUTO
+***********************************
+SELECT p.PROCOD AS referencia,p.PRODES AS nome,
+CASE p.PROUNID
+WHEN 'UN' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16
+	WHEN '' THEN 1
+	WHEN NULL THEN 1
+END
+AS idUnidade, p.PROPRCCST AS valorCusto, PROPRC1 AS valorVenda, g.GRPDES AS descricaoPDV, s.SECDES AS observacao,
+CASE t.TRBCSOSN
+		WHEN 102 THEN 1
+		WHEN 101 THEN 1
+		WHEN 500 THEN 2
+		WHEN 300 THEN 3
+	END
+	AS idFiscal
+	, p.PRONCM AS codigoNCM, p.PROCEST AS codigoCEST, e.ESTATU AS estoqueAtual
+FROM PRODUTO AS p
+LEFT JOIN ESTOQUE AS e
+ON p.PROCOD = e.PROCOD
+LEFT JOIN GRUPO AS g
+ON p.SGRCOD = g.GRPCOD
+LEFT JOIN SECAO s 
+ON p.SECCOD = s.SECCOD
+LEFT JOIN TRIBUTACAO t 
+ON p.TRBID = t.TRBID;
+
+
+***********************************
+PRODUTO
+***********************************
+
+SELECT DISTINCT p.PROCOD,e.PROCODAUX,p.PRODES, p.PRODESRDZ, p.TRBID, p.PROUNID, 
+p.PROPRCVDAVAR, p.PROPRCCST, p.PROPRC1, p.PROUNDCMP, p.PRONCM, p.PROCEST,p.SECCOD, Z.ESTATU FROM PRODUTO p 
+LEFT JOIN PRODUTOAUX e ON p.PROCOD = e.PROCOD
+LEFT JOIN ESTOQUE z ON p.PROCOD = z.PROCOD 
+GROUP BY p.PROCOD,e.PROCODAUX, p.PRODES, p.PRODESRDZ, p.TRBID, p.PROUNID, 
+p.PROPRCVDAVAR, p.PROPRCCST, p.PROPRC1, p.PROUNDCMP, p.PRONCM, p.PROCEST, p.SECCOD, z.ESTATU;
+***********************************
+syspdv_srv
+***********************************
+
+
+***********************************
+PRODUTO
+***********************************
+SELECT p.PROCOD AS referencia,p.PRODES AS nome, p.TRBID AS idFiscal, p.PROUNID AS idUnidade, p.PROPRCCST AS valorCusto, PROPRC1 AS valorVenda, g.GRPDES AS observacao, p.PRONCM AS codigoNCM, p.PROCEST AS codigoCEST, e.ESTATU AS estoqueAtual
+FROM PRODUTO AS p
+LEFT JOIN ESTOQUE AS e
+ON p.PROCOD = e.PROCOD
+LEFT JOIN GRUPO AS g
+ON p.SGRCOD = g.GRPCOD;
+
+***********************************
+PRODUTO AUXILIAR
+***********************************
+SELECT PROCODAUX, PROCOD
+FROM PRODUTOAUX;
+
+
+***********************************
+INSERT INTO codigosauxiliares(alterado, excluido, fatorMultiplicacao, gtin,
+idParaCarga, valorVenda, markup, total, descricaoAuxiliar, idUnidade,
+produtoBalanca, validade, valorCusto, manterPrecoCusto, codigoSimples, produtosBean_id)
+SELECT ",",0,1,a.PROCODAUX,p.id,p.valorVenda,p.markup,p.valorvenda,p.nome,p.idunidade,p.produtobalanca,p.validadedias,p.valorcusto,1,1,p.codigoInterno
+FROM produotos as p
+INNER JOIN aux AS a
+ON p.gtin=a.PROCOD;
+
+UPDATE codigosauxiliares SET MARKUP = ((valorVenda / Round(valorCusto,2)) * 100) - 100;
+UPDATE codigosauxiliares SET MARKUP = 0 WHERE MARKUP IS NULL OR MARKUP = '';
+UPDATE codigosauxiliares SET  produtosBean_id = idParaCarga;
+UPDATE codigosauxiliares SET  idParaCarga = produtosBean_id;
+
+UPDATE codigosauxiliares AS C
+INNER JOIN PRODUOTOS AS P
+ON C.idParaCarga = P.gtin
+SET C.produtosBean_id = P.codigoInterno;
+
+***********************************
+PESSOAS
+***********************************
+0 = Cliente
+1 = Fornecedor
+3 = Transportador
+***********************************
+
+
+
+
+
+
+
+***********************************
+Gestor
+***********************************
+PRODUTO
+sm_cd_es_produto
+
+VALORES
+SM_CD_ES_PRODUTO_DNM 
+
+PESSOAS
+SM_CD_MO_MOVIMENTADOR
+
+***********************************
+PRODUTO
+***********************************
+
+SELECT REPLACE(p.COD, '.', '') AS referencia, p.DSC AS nome, vl.CUSTO_S_IMP AS valorCusto, vl.PRECO AS valorVenda, s.DSC AS setor, sg.DSC AS grupo, p.PD_UNIDADE AS idUnidade, p.PD_CEST AS codigoCEST, p.PD_NCM AS codigoNCM
+FROM SM_CD_ES_PRODUTO AS p
+LEFT JOIN SM_CD_ES_DEPARTAMENTO AS s
+ON p.PD_DEPARTAMENTO = s.COD 
+LEFT JOIN SM_CD_ES_SUB_GRUPO AS sg
+ON p.PD_SUB_GRUPO = sg.COD
+LEFT JOIN SM_CD_ES_PRODUTO_DNM AS vl
+ON p.COD = vl.COD;
+
+***********************************
+CODIGO AUXILIAR
+***********************************
+
+SELECT REPLACE(p.COD, '.', '') AS idParaCarga, REPLACE(b.BARRAS, '.', '') AS gtin, p.DSC AS nome
+FROM SM_CD_ES_PRODUTO_BAR AS b
+LEFT JOIN SM_CD_ES_PRODUTO AS p
+ON b.COD = p.COD;
+********************************
+INSERT INTO codigosauxiliares(alterado, excluido, fatorMultiplicacao, gtin, idParaCarga, valorVenda, markup, total, descricaoAuxiliar, idUnidade, produtoBalanca, validade, valorCusto, manterPrecoCusto, codigoSimples, produtosBean_id)
+SELECT ",",0,1,a.GTIN,p.codigoInterno,p.valorVenda,p.markup,p.valorvenda,a.nome,p.idunidade,p.produtobalanca,p.validadedias,p.valorcusto,1,1,p.codigoInterno
+FROM produotos as p
+INNER JOIN aux AS a
+ON p.REFERENCIA=a.REFERENCIA;
+
+UPDATE codigosauxiliares SET MARKUP = ((valorVenda / Round(valorCusto,2)) * 100) - 100;
+UPDATE codigosauxiliares SET MARKUP = 0 WHERE MARKUP IS NULL OR MARKUP = '';
+
+***********************************
+PESSOAS
+***********************************
+SELECT TIPO, PD_NOME AS nome, REPLACE(PD_CNPJ_CPF, '.', '') AS cnpj, PD_FANTASIA AS nomeFantasia, PD_ENDERECO AS logradouro, PD_NUMERO AS numero, PD_BAIRRO AS bairro, PD_COMPLEMENTO AS complemento, c.NOME AS cidade, PD_CEP AS cep, PD_MOVEL AS celularComercial, PD_FONE AS telefoneComercial, PD_EMAIL AS emailComercial, PD_IE AS inscricaoEstadual
+FROM SM_CD_MO_MOVIMENTADOR AS p
+LEFT JOIN ST_CD_CIDADES AS c
+ON c.CODIGO = p.PD_CIDADE
+WHERE TIPO LIKE '%1%';
+

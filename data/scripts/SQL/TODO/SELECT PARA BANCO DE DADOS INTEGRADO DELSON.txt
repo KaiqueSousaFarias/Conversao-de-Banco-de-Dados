@@ -1,0 +1,18 @@
+PRODUTOS
+
+SELECT t.codpro AS referencia,descpro AS nome,CODBARUN AS gtin,UNIDADE AS idunidade,
+CLASFISCAL AS codigoncm,cst AS idfiscal,cest AS codigocest,
+prvapro AS valorvenda, NOMGRU AS observacao, prcusvar AS valorcusto, QTDPRO AS estoqueAtual FROM TABPRO t 
+LEFT JOIN TABPROFIL t2 ON t.CODPRO = t2.CODPRO 
+LEFT JOIN TABGRU t3 ON t.GRUPRO = t3.CODGRU;
+
+CLIENTES
+
+SELECT NOMCLI AS nome, FANCLI AS nomeFantasia, ENDCLI AS logradouro, BAICLI AS bairro, CEP, CIDADE, UF, FONE1 AS celularPessoal, FONE2 AS telefoneComercial, EMAIL AS emailComercial, CONTATO, CGC AS cnpj, INSCEST AS inscricaoEstadual, NRENDCLI AS numero
+FROM TABCLI;
+
+
+FORNECEDORES
+
+SELECT NOMFOR AS nome, FANFOR AS nomeFantasia, ENDFOR AS logradouro, BAIFOR AS bairro, CEP, CIDADE, UF, FONE1 AS celularPessoal, FONE2 AS telefoneComercial, EMAIL as emailComercial, CONTATO, CNPJ, INSCEST AS inscricaoEstadual, NRENDFOR AS numero
+FROM TABFOR;

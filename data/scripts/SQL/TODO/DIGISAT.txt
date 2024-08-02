@@ -1,0 +1,34 @@
+[
+  {
+    $lookup: {
+      from: "ProdutosServicos",
+      localField: "ProdutoServicoReferencia",
+      foreignField: "_id",
+      as: "produto_servico"
+    }
+  },
+  {
+    $unwind: "$produto_servico"a
+  },
+  {
+    $lookup: {
+      from: "Precos",
+      localField: "PrecoReferencia",
+      foreignField: "_id",
+      as: "preco"
+    }
+  },
+  {
+    $unwind: "$preco"
+  },
+  {
+    $project: {
+      "codigoNCM": "$NcmNbs.Codigo",
+      "valorCusto": "$preco.Custo.Valor",
+      "valorVenda": "$preco.Venda.Valor",
+      "gtin": "$produto_servico.CodigoBarras",
+      "nome": "$produto_servico.Descricao",
+      "idUnidade": "$produto_servico.UnidadeMedida.Sigla"
+    }
+  }
+]

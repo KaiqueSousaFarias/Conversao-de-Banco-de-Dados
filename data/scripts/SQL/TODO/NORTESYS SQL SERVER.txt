@@ -1,0 +1,45 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT p.[CODIGO] AS referencia
+      ,p.[NOME]
+      ,m.NOME AS fornecedor
+      ,g.NOME AS grupo
+      ,sg.NOME AS subgrupo
+      ,s.NOME AS setor
+      ,CASE [UNIDADE]
+		WHEN 'UN' THEN 1
+		WHEN 'KG' THEN 2
+		WHEN 'LT' THEN 3
+		WHEN 'CX' THEN 4
+		WHEN 'DZ' THEN 5
+		WHEN 'FD' THEN 6
+		WHEN 'GL' THEN 7
+		WHEN 'GR' THEN 8
+		WHEN 'BD' THEN 9
+		WHEN 'MT' THEN 10
+		WHEN 'M2' THEN 11
+		WHEN 'M3' THEN 12
+		WHEN 'MG' THEN 13
+		WHEN 'ML' THEN 14
+		WHEN 'MM' THEN 15
+		WHEN 'PC' THEN 16
+		ELSE 1
+		END AS idUnidade
+      ,[CBARRA] AS gtin
+      ,[CODIGO_NCM] AS codigoNCM
+      ,[COD_CEST] AS codigoCEST
+	  ,EST_ATUAL AS estoqueAtual
+	  ,PCO_REMAR AS valorVenda
+	  ,PCO_COMPRA AS valorCompra
+  FROM [NSYSGDB].[dbo].[PRODUTOS] AS p
+  LEFT JOIN [NSYSGDB].[dbo].[DEPTO] AS s
+  ON p.CDEPTO = s.CODIGO
+  LEFT JOIN [NSYSGDB].[dbo].[GRUPOS] AS g
+  ON p.GRUPO = g.CODIGO
+  LEFT JOIN [NSYSGDB].[dbo].[SUB_GRUPOS] AS sg
+  ON p.SUBG = sg.CODIGO
+  LEFT JOIN [NSYSGDB].[dbo].[MARCAS] AS m
+  ON p.MARCA = m.CODIGO
+  LEFT JOIN [NSYSGDB].[dbo].[PRODLOJAS] AS v
+  ON p.CODIGO = v.CODIGO
+  WHERE p.[ATIVO] = 'S' AND v.CODLOJA = 1;
+

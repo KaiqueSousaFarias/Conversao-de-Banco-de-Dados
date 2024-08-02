@@ -1,0 +1,58 @@
+///PRODUTO
+
+SELECT p.id_produto AS referencia, ncm.codigo AS codigoNCM, p.cest AS codigoCEST,
+CASE csosn.codigo_cst
+	WHEN '102' THEN 1
+	WHEN '500' THEN 2
+	WHEN '300' THEN 3
+END
+AS idFiscal,p.descricao AS nome, p.estoque AS estoqueAtual, p.custo_real AS valorCusto, p.valor_unitario AS valorVenda, 
+CASE p.sigla
+	WHEN 'UN' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16 END AS idUnidade, codigo_gtin AS gtin,
+CASE p.ativo WHEN 'S' THEN 0 WHEN 'N' THEN '1' END AS produtoInativo
+FROM public.produto_consulta AS p
+LEFT JOIN ncm
+ON p.id_ncm = ncm.id_ncm
+LEFT JOIN CSOSN
+ON p.id_csosn = csosn.id_csosn
+WHERE p.id_licenciada = 1;
+
+
+
+
+//PESSOAS
+
+SELECT id_entidade AS observacao, nome, documento AS cnpj,
+CASE ecliente
+WHEN 'S' THEN 1
+WHEN 'N' THEN 0
+END AS cliente,
+CASE efornecedor
+WHEN 'S' THEN 1
+WHEN 'N' THEN 0
+END AS fornecedor,
+CASE evendedor
+WHEN 'S' THEN 1
+WHEN 'N' THEN 0
+END AS vendedor,
+CASE etransportador
+WHEN 'S' THEN 1
+WHEN 'N' THEN 0
+END AS transportador,
+inscricao_estadual AS inscricaoEstadual
+FROM entidade

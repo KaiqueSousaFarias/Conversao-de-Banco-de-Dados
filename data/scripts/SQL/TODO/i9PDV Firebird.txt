@@ -1,0 +1,59 @@
+
+//PRODUTO
+
+UPDATE produotos AS p
+INNER JOIN plan1 AS p1
+ON p.referencia = p1.referencia
+INNER JOIN plan2 AS p2
+ON p.referencia = p2.referencia
+INNER JOIN plan3 AS p3
+ON p.referencia = p3.referencia
+SET p.gtin = p1.gtin, p.valorCusto = p2.valorCusto, p.valorVenda = p3.valorVenda;
+
+//PRODUTO
+
+SELECT 
+PROD_COD AS referencia,
+DESCR AS nome,
+NCM AS codigoNCM,
+CEST AS codigoCEST,
+CASE TRAT_ICMS
+    WHEN 102 THEN 1
+    WHEN 500 THEN 2
+    WHEN 300 THEN 3
+END
+AS idFiscal
+FROM 
+PROD;
+
+SELECT
+PROD_COD AS referencia,
+BAR_COD AS gtin
+FROM 
+PROD_BARRAS;
+
+SELECT
+PROD_COD AS referencia,
+PRECO AS valorVenda
+FROM
+PROD_PRECO_ATUAL;
+
+SELECT
+PROD_COD AS referencia,
+CUSTO AS valorCusto
+FROM
+PROD_CUSTO_ATUAL;
+
+
+
+//CLIENTE
+
+SELECT NOME, C 
+FROM CLI
+
+
+
+//CLIENTE
+
+SELECT NOME, C 
+FROM CLI

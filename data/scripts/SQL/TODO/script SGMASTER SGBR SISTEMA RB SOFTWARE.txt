@@ -1,0 +1,23 @@
+select
+e.controle as codinterno,
+e.produto as nome,
+e.codbarras as gtin,
+e.unidade as idunidade,
+e.precocusto as valorcusto,
+e.precovenda as valorvenda,
+e.codfornecedor as idfornecedor,
+e.qtde as estoqueatual,
+e.qtdereal as estoqueatual_2,
+e.ativo,
+e.ncm as codigoNCM,
+e.cest as codigocest,
+e.origem,
+e.codigocstorigem,
+e.possuiicmsst,
+e.aliquotaicmsecf,
+e.csosn as idfiscal
+from TESTOQUE as e
+order by controle;
+
+
+

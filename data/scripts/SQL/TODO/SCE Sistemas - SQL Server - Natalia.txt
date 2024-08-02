@@ -1,0 +1,86 @@
+/****** produto ******/
+SELECT [Codproduto] AS referencia
+      ,[CodBarra] AS gtin
+      ,[Nome]
+      ,CASE Unidade
+WHEN 'UN' THEN 1
+WHEN 'KG' THEN 2
+WHEN 'LT' THEN 3
+WHEN 'CX' THEN 4
+WHEN 'DZ' THEN 5
+WHEN 'FD' THEN 6
+WHEN 'GL' THEN 7
+WHEN 'GR' THEN 8
+WHEN 'BD' THEN 9
+WHEN 'MT' THEN 10
+WHEN 'M2' THEN 11
+WHEN 'M3' THEN 12
+WHEN 'MG' THEN 13
+WHEN 'ML' THEN 14
+WHEN 'MM' THEN 15
+WHEN 'PC' THEN 16
+WHEN '' THEN 1
+WHEN NULL THEN 1
+END AS idUnidade
+      ,[PrecoCusto] AS valorCusto
+      ,[PrecoVenda] AS valorVenda
+      ,CASE [ProdutoInativo]
+WHEN 'S' THEN 1
+WHEN 'N' THEN 0
+END  AS produtoInativo
+      ,[NCM] AS codigoNCM
+      ,CASE CSOSN
+WHEN 102 THEN 1
+WHEN 500 THEN 2
+WHEN 300 THEN 3
+END AS idFiscal
+      ,[Cest] AS codigoCEST
+  FROM [backupNat].[dbo].[produto]
+
+
+
+
+/****** cliente ******/
+SELECT [Codcliente] AS observacao
+      ,[nomerazao] AS nome
+      ,[ie] AS inscricaoEstadual
+      ,[cnpj]
+      ,[nomefantasia]
+      ,[endereco] AS logradouro
+      ,[bairro]
+      ,[cidade]
+      ,[estado] AS uf
+      ,[cep]
+      ,[tel] AS telefoneComercial
+      ,[email] AS emailComercial
+	  ,[codigoCidade] AS codigoMunicipio
+  FROM [backupNat].[dbo].[cliente]
+
+
+/****** [fornecedor] ******/
+SELECT [codfornecedor] AS observacao
+      ,[nome] AS nome
+      ,[ie] AS inscricaoEstadual
+      ,[cnpj]
+      ,[endereco] AS logradouro
+      ,[bairro]
+      ,[cidade]
+      ,[estado] AS uf
+      ,[cep]
+      ,[tel1] AS telefoneComercial
+      ,[email] AS emailComercial
+  FROM [backupNat].[dbo].[fornecedor]
+
+
+/****** Codcontareceber  ******/
+SELECT [Codcontareceber]
+      ,cr.[Codvenda] AS numeroDocumento
+      ,[Valor]
+      ,[DataVenc] AS dataVencimento
+      ,[Dthdoc] AS dataRecebimento
+      ,[ValorPend] AS valorRestante
+      ,Codcliente AS observacao
+  FROM [backupNat].[dbo].[contareceber] AS cr
+  INNER JOIN venda AS v
+  ON cr.Codvenda = v.Codvenda
+WHERE valorPend <> 0

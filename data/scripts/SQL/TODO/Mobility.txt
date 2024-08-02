@@ -1,0 +1,49 @@
+PRODUTOS
+
+--------------------------------------------------
+
+SELECT
+CODIGO_INTERNO AS referencia,
+CODIGO_BARRAS AS gtin,
+DESCRICAO AS nome,
+PRECO_COMPRA AS valorCompra, 
+PRECO_CUSTO AS valorCusto,
+PRECO_VENDA1 AS valorVenda,
+ESTOQUE_ATUAL AS estoqueAtual,
+S_NCM AS codigoNCM,
+S_CEST AS codigoCEST,
+CASE UPPER(UNIDADE)
+	WHEN 'UN' THEN 1
+	WHEN 'UNID' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'L' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16
+	WHEN 'PCT' THEN 16
+	ELSE 1
+	END AS IdUnidade,
+CASE ALIQUOTA
+    WHEN 15 THEN 1
+    WHEN 14 THEN 2
+    WHEN 16 THEN 3
+    ELSE 1
+END AS idFiscal
+FROM produtos;
+
+--------------------------------------------------------------------------
+CLIENTES
+--------------------------------------------------------------------------
+
+

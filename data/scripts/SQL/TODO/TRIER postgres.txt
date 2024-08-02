@@ -1,0 +1,50 @@
+C:\Users\user\trier\sgf\backup
+
+PRODUTO
+
+SELECT p.cod_reduzido AS referencia, c.cod_barra AS gtin, p.nom_produto AS nome,
+CASE p.cod_unidade
+	WHEN 'UN' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16
+	END
+	AS idUnidade, p.vlr_custo AS valorCusto, p.vlr_venda AS valorVenda,
+	CASE p.flg_ativo
+	WHEN 'A' THEN '0'
+	WHEN 'I' THEN '1'
+	END
+	AS produtoInativo,
+	CASE p.cod_tribut
+	WHEN '102' THEN 1
+	WHEN '500' THEN 2
+	WHEN '300' THEN 3
+	END
+	AS idFiscal, p.cod_clafiscal AS codigoNCM, p.cod_cest AS codigoCEST, e.qtd_estoque AS estoqueAtual
+FROM public.cadprodu AS p
+LEFT JOIN public.cadcdbar AS c
+ON p.cod_reduzido = c.cod_reduzido
+LEFT JOIN  public.estoque AS e
+ON p.cod_reduzido = e.cod_reduzido;
+
+CLIENTE
+
+SELECT cod_cliente AS observacao, nom_cliente AS nome, num_cnpj AS cnpj, end_cliente AS logradouro, cid_cliente AS cidade, cep_cliente AS cep, num_fone AS contato, bai_cliente AS bairro, est_cliente AS uf, cmp_endereco AS complemento, num_endereco AS numero
+FROM public.cadclien;
+	
+CONTAS A RECEBER
+
+SELECT num_nota AS numeroDocumento, num_parcela AS parcela, cod_cliente AS observacao, dat_receb AS dataRecebimento, dat_vencto AS dataVencimento, dat_emissao AS dataEmissao, vlr_receber AS valor, vlr_recebido AS valorPago
+FROM public.cadcredi

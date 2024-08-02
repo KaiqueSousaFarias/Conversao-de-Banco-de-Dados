@@ -1,0 +1,10 @@
+//PRODUTO
+
+SELECT p.descricao AS nome, p.preco_custo AS valorCusto, p.preco_venda AS valorVenda, p.qtd_estoque AS estoqueAtual, p.cst_icms AS idFiscal, p.ncm AS codigoNCM, p.cest AS codigoCEST, p.codigo_produto AS referencia, u.descricao AS idUnidade, g.descricao AS observacao, gtin.codigo_barra AS gtin
+FROM produto AS p
+INNER JOIN prod_unidade AS u
+ON p.id_prod_unidade = u.id_prod_unidade
+INNER JOIN prod_grupo AS g
+ON p.id_prod_grupo = g.id_prod_grupo
+INNER JOIN prod_cod_barras AS gtin
+ON p.id_produto= gtin.id_produto;

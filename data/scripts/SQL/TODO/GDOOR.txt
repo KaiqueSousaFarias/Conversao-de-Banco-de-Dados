@@ -1,0 +1,57 @@
+-------------------------------
+PRODUTOS
+
+SELECT 
+    e.CODIGO AS referencia, 
+    MIN(e.BARRAS) AS gtin, 
+    MIN(e.DESCRICAO) AS nome, 
+    CASE MIN(e.UND)
+        WHEN 'UN' THEN 1
+        WHEN 'KG' THEN 2
+        WHEN 'LT' THEN 3
+        WHEN 'CX' THEN 4
+        WHEN 'DZ' THEN 5
+        WHEN 'FD' THEN 6
+        WHEN 'GL' THEN 7
+        WHEN 'GR' THEN 8
+        WHEN 'BD' THEN 9
+        WHEN 'MT' THEN 10
+        WHEN 'M2' THEN 11
+        WHEN 'M3' THEN 12
+        WHEN 'MG' THEN 13
+        WHEN 'ML' THEN 14
+        WHEN 'MM' THEN 15
+        WHEN 'PC' THEN 16
+        ELSE 1
+    END AS idunidade,
+    MIN(f.CODIGO) AS idFornecedor,
+    MIN(QTD) AS estoqueAtual,
+    MIN(PRECO_CUSTO) AS PRECO_CUSTO, 
+    MIN(PRECO_VENDA) AS PRECO_VENDA,  
+    1 AS idFiscal,  
+    MIN(COD_NCM) AS codigoNCM,  
+    MIN(c.CODIGO) AS codigoCEST
+FROM 
+    ESTOQUE e
+LEFT JOIN 
+    FORNECEDOR f ON e.FORNECEDOR = f.NOME 
+LEFT JOIN 
+    CEST c ON e.COD_CEST = c.ID
+GROUP BY 
+    e.CODIGO;
+
+------------------------------------
+
+FORNECEDORES
+
+SELECT CODIGO AS observacao, NOME, FANTASIA AS nomeFantasia, CNPJ_CNPF AS cnpj, IE_RG AS inscricaoEstadual, IM AS inscricaoMunicipal, ENDERECO AS logradouro, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, UF, CEP, TELEFONE
+FROM FORNECEDOR;
+
+------------------------------------
+
+CLIENTES
+
+SELECT c.CODIGO AS observacao, c.NOME, c.FANTASIA AS nomeFantasia, CNPJ_CNPF AS cnpj, IE_RG AS inscricaoEstadual,  ENDERECO AS logradouro, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, m.CODIGO AS codigoMunicipio, c.UF, CEP,  REPLACE(telefone, '(0xx', '(') AS telefoneComercial, REPLACE(CELULAR, '(0xx', '(') AS celularPessoal
+FROM CLIENTE c
+LEFT JOIN MUNICIPIOS m ON c.ID_MUNICIPIO = m.ID
+WHERE c.NOME  != 'Consumidor';

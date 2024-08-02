@@ -1,0 +1,71 @@
+**************
+PRODUTO
+**************
+select
+controle as referencia,
+produto as nome,
+codbarras as gtin,
+CASE unidade
+	WHEN 'UN' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16
+	WHEN '' THEN 1
+WHEN NULL THEN 1
+END
+as idunidade,
+grupo AS observacao,
+subgrupo AS descricaoPDV,
+marca AS descricaoEtiquetas,
+precocusto as valorcusto,
+precovenda as valorvenda,
+qtde as estoqueatual,
+ncm as codigoNCM,
+cest as codigocest,
+CASE csosn
+	WHEN 102 THEN 1
+	WHEN 500 THEN 2
+	WHEN 300 THEN 3
+	END
+as idfiscal
+from TESTOQUE;
+
+
+
+**************
+CLIENTE
+**************
+SELECT CONTROLE AS observacao, CLIENTE AS nome, ENDERECO AS logradouro, COMPLEMENTO, BAIRRO, CIDADE, UF, CEP, RG AS registroGeral, CPF, CNPJ, IE AS inscricaoEstadual, TELEFONE AS telefoneComercial, CELULAR AS celularComercial, EMAIL AS emailComercial, FANTASIA AS nomeFantasia, NUMERO
+FROM TCLIENTE;
+
+**************
+FORNECEDOR
+**************
+SELECT CONTROLE AS observacao, RAZAOSOCIAL AS nome, ENDERECO AS logradouro, COMPLEMENTO, BAIRRO, CIDADE, UF, CEP, RG AS registroGeral, CPF, CNPJ, IE AS inscricaoEstadual, TELEFONE AS telefoneComercial, CELULAR AS celularComercial, EMAIL AS emailComercial, NOMEFANTASIA, NUMERO
+FROM TFORNECEDOR;
+
+**************
+CONTAS A PAGAR
+**************
+SELECT CONTROLE AS observacao, DOCUMENTO AS numeroDocumento, CODFORNECEDOR AS id_Cliente, DATAHORACADASTRO AS dataEmissao, DATAVENCIMENTO, VALORASERPAGO AS valor, VALORPAGO
+FROM TPAGAR
+WHERE VALORASERPAGO != 0 AND CANCELADA = 'NÃO' AND QUITADA = 'NÃO';
+
+**************
+CONTAS A RECEBER
+**************
+SELECT CONTROLE AS observacao, DOCUMENTO AS numeroDocumento, CODCLIENTE AS id_Cliente, DATAHORACADASTRO AS dataEmissao, DATAVENCIMENTO, VALORASERPAGO AS valor, VALORPAGO
+FROM TRECEBER
+WHERE VALORASERPAGO != 0 AND CANCELADA = 'NÃO' AND QUITADA = 'NÃO';

@@ -1,0 +1,15 @@
+Conexao
+******************************************************************************************
+[Ethos]
+DriverID=FB
+Database=/opt/firebird/data/ethos.fdb
+User_Name=SYSDBA
+Password=sS2JohIjnjQFKMnF1z01
+CharacterSet=WIN1252
+Protocol=ipTCPIP
+Server=env-0340426.jelastic.saveincloud.net
+Port=11585
+;VendorLib=C:\Program Files\Firebird\Firebird_3_0\WOW64\fbclient.dll
+;VendorLibWin32=C:\Program Files\Firebird\Firebird_3_0\fbclient.dll
+******************************************************************************************
+

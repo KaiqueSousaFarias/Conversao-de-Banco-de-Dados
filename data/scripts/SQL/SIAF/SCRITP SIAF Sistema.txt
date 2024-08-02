@@ -1,0 +1,7 @@
+SELECT p.PRO_COD as referencia, p.PRO_BARRA AS gtin, p.PRO_NOME AS nome, g.GRU_NOME, p.PRO_UNI AS idUnidade,
+p.PRO_CUSTO as valorCusto, p.PRO_VENDA as valorVenda, p.PRO_EST as estoqueAtual,
+p.PRO_CF as codigoNCM, p.PRO_CSO as csosn, p.PRO_CEST as codigoCEST
+FROM DSIAF006 AS p 
+LEFT JOIN DSIAF005 AS g
+ON p.GRU_COD = g.GRU_COD
+ORDER BY PRO_COD;

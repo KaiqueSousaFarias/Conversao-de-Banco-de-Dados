@@ -1,0 +1,80 @@
+//PRODUTOS
+
+SELECT [CodInterno] AS gtin
+	  ,[CodBarra] AS gtinTributavel
+      ,CONCAT([Produto], ' ', [Fabricante]) AS nome
+      ,[PrecoCompra] AS valorCompra
+      ,[PrecoCusto] AS valorCusto
+      ,[PrecoVenda] AS valorVenda
+      ,[Quantidade] AS estoqueAtual
+      ,CASE [Unidade]
+ 		WHEN 'UN' THEN 1
+		WHEN 'KG' THEN 2
+		WHEN 'LT' THEN 3
+		WHEN 'CX' THEN 4
+		WHEN 'DZ' THEN 5
+		WHEN 'FD' THEN 6
+		WHEN 'GL' THEN 7
+		WHEN 'GR' THEN 8
+		WHEN 'BD' THEN 9
+		WHEN 'MT' THEN 10
+		WHEN 'M2' THEN 11
+		WHEN 'M3' THEN 12
+		WHEN 'MG' THEN 13
+		WHEN 'ML' THEN 14
+		WHEN 'MM' THEN 15
+		WHEN 'PC' THEN 16
+	  END AS idUnidade
+      ,CASE [Trb_ICMS_CST] 
+		WHEN 102 THEN 1
+		WHEN 500 THEN 2
+		WHEN 300 THEN 3
+		WHEN NULL THEN 1
+		WHEN '' THEN 1
+	  END
+	  AS idFiscal
+      ,[CodBarra] AS referencia
+      ,[NCM] AS codigoNCM
+      ,[CEST] AS codigoCEST
+      ,[Moeda] AS localizacao
+  FROM [Servsic].[dbo].[TABEST1]
+  WHERE [Inativo] = 0
+
+//CLIENTE
+
+SELECT 
+       [Nome]
+      ,[Endereco] AS lograoduro
+      ,[Bairro]
+      ,[Cidade]
+      ,[Estado] AS uf
+      ,[Cep]
+      ,[Telefone] AS telefoneComercial
+      ,[eMail] AS emailComercial
+      ,[CGC] AS cnpj
+      ,[Insc] AS inscricaoEstadual
+      ,[Identidade] AS registroGeral
+      ,[Cpf]
+      ,[FANTASIA_APELIDO] AS nomeFantasia
+      ,[ComplEnd] AS complemento
+      ,[Celular] AS celularComercial
+      ,[CodMunicipio] AS codigoMunicipio
+      ,[Numero]
+  FROM [SERVSIC ].[dbo].[TABCLI]
+
+//FORNECEDOR
+
+SELECT [Empresa]
+      ,[Endereco] AS lograoduro
+      ,[Bairro]
+      ,[Cidade]
+      ,[Estado] AS uf
+      ,[Cep]
+      ,[Telefone] AS telefoneComercial
+      ,[eMail] AS emailComercial
+      ,[CGC] AS cnpj
+      ,[Insc] AS inscricaoEstadual
+      ,[Celular] AS celularComercial
+      ,[CodMunicipio] AS codigoMunicipio
+      ,[Numero]
+  FROM [SERVSIC].[dbo].[tabFor]

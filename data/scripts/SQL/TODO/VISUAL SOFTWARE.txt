@@ -1,0 +1,39 @@
+------------------------PRODUTOS--------------------------
+
+SELECT p.Codigo as referencia, CodigoBarras as gtin, Descricao as nome,Detalhamento as observacao,  
+CASE UNVenda
+	WHEN 'UN' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16
+	else 1
+  END
+  AS idUnidade
+, ValorCusto, VendaT1 as ValorVenda, Grupo as descricaoPDV, SubGrupo as descricaoEtiquetas, NCM as CodigoNCM, Cest, p1.Estoque as EstoqueAtual
+FROM vsbd.produtos p
+left join produtosestoque p1
+on p.Codigo = p1.CodigoProduto 
+where p.Descricao is not NULL
+order by p.codigo ASC;
+
+
+----------------------- CLIENTES ---------------------------
+
+SELECT Codigo as observacao, RazaoSocial as nome, NomeFantasia, CNPJ,IE as inscricaoEstadual, CPF, RG as registrogeral, DataNascimento, Endereco as logradouro, Numero, Bairro, Cidade, CEP, UF, Complemento,
+Email as emailPessoal,CONCAT(Telefone1, Telefone2) as telefoneComercial,  CodigoCidadeIbge as codigoMunicipio
+FROM vsbd.clientes
+where Codigo  != 1
+order by Codigo;
+

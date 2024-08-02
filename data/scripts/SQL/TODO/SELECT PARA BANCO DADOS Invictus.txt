@@ -1,0 +1,2 @@
+SELECT CODIGO AS referencia, CODBARRA AS gtin, PRODUTO AS nome, UNIDADE AS idUnidade, PRECOCUSTO as valorCusto, PRECOVENDA as valorVenda, PRECOVENDA_NOVO as observacao, ESTOQUE as estoqueAtual, CST, CLASSIFICACAO_FISCAL, NCM as codigoNCM, CSOSN  FROM C000025;
+

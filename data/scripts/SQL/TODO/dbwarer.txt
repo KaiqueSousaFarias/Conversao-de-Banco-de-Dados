@@ -1,0 +1,43 @@
+INSERT INTO produotos (
+    IAT, IPPT, alterado, alteradoEm, alteradoMultiLoja, alterarPrecoMultiLoja,
+    balancaCaixa, bloquearQuantidadeVenda, codigoCEST, codigoInterno, codigoNCM,
+    custoOperacional, dataAlteracao, dataUltimaCompra, descricaoEtiquetas, descricaoLivre,
+    descricaoPDV, estoqueAtual, estoqueMaximo, estoqueMinimo, etiqueta, fatorDeMultiplicacao,
+    fatorQtdUnd, finalidadeProduto, gradeProdutos, gtin, horaAlteracao, limitarDesconto,
+    listaSubItens, localizacao, markUp, markUpAnterior, nome, observacao, pagaComissao,
+    pedeNumeroSerieVenda, percentualComissao, percentualMaximoDesconto, pesoBruto,
+    pesoLiquido, possuiSubItens, precoLivre, produtoBalanca, produtoGrade, produtoInativo,
+    produtoMultiLoja, quantidade, quantidadeMaximaVenda, quantidadePorUnd, referencia,
+    totalComprado, ultimaQuantidadeComprada, validadeDias, valorCompra, valorCompraAnterior,
+    valorCusto, valorCustoAnterior, valorVenda, valorVendaAnterior, valorVendaEtiqueta,
+    idFiscal, idFornecedor, idGrupo, idSetor, idSubGrupo, idUnidade, idUnidadeCompra,
+    codigoProdutoANP, gtinEtiquetas, gtinTributavel, markUpAtacado, percentualGLP,
+    percentualGNi, percentualGNn, quantidadeKGGLP, valorVendaAtacado, idFamilia,
+    percentualComissaoPrazo, tipoComissao, valorComissaoPrazo, valorComissaoVista,
+    SKU, ajustarQuantidadePrecoLivre, ativarAtacadoAutomatico, desagruparSubItens,
+    estoqueReservado, exibirCamposMetrosQuadradosOrcamento, exibirQuantidadePorCaixaOrcamento,
+    numeroControleFCI, precoFormatado, produtoMarketplace, quantidadeEntradaAtacado,
+    quantidadeMetrosCaixa, solicitarInformacoesAdicionais, tipoAtacadoAutomatico, valorEntradaAtacado
+)
+SELECT
+    t1.IAT, t1.IPPT, t1.alterado, t1.alteradoEm, t1.alteradoMultiLoja, t1.alterarPrecoMultiLoja,
+    t1.balancaCaixa, t1.bloquearQuantidadeVenda, t1.codigoCEST, t1.codigoInterno, t1.codigoNCM,
+    t1.custoOperacional, t1.dataAlteracao, t1.dataUltimaCompra, t1.descricaoEtiquetas, t1.descricaoLivre,
+    t1.descricaoPDV, t1.estoqueAtual, t1.estoqueMaximo, t1.estoqueMinimo, t1.etiqueta, t1.fatorDeMultiplicacao,
+    t1.fatorQtdUnd, t1.finalidadeProduto, t1.gradeProdutos, t1.gtin, t1.horaAlteracao, t1.limitarDesconto,
+    t1.listaSubItens, t1.localizacao, t1.markUp, t1.markUpAnterior, t1.nome, t1.observacao, t1.pagaComissao,
+    t1.pedeNumeroSerieVenda, t1.percentualComissao, t1.percentualMaximoDesconto, t1.pesoBruto,
+    t1.pesoLiquido, t1.possuiSubItens, t1.precoLivre, t1.produtoBalanca, t1.produtoGrade, t1.produtoInativo,
+    t1.produtoMultiLoja, t1.quantidade, t1.quantidadeMaximaVenda, t1.quantidadePorUnd, t1.referencia,
+    t1.totalComprado, t1.ultimaQuantidadeComprada, t1.validadeDias, t1.valorCompra, t1.valorCompraAnterior,
+    t1.valorCusto, t1.valorCustoAnterior, t1.valorVenda, t1.valorVendaAnterior, t1.valorVendaEtiqueta,
+    t1.idFiscal, t1.idFornecedor, t1.idGrupo, t1.idSetor, t1.idSubGrupo, t1.idUnidade, t1.idUnidadeCompra,
+    t1.codigoProdutoANP, t1.gtinEtiquetas, t1.gtinTributavel, t1.markUpAtacado, t1.percentualGLP,
+    t1.percentualGNi, t1.percentualGNn, t1.quantidadeKGGLP, t1.valorVendaAtacado, t1.idFamilia,
+    t1.percentualComissaoPrazo, t1.tipoComissao, t1.valorComissaoPrazo, t1.valorComissaoVista,
+    t1.SKU, t1.ajustarQuantidadePrecoLivre, t1.ativarAtacadoAutomatico, t1.desagruparSubItens,
+    t1.estoqueReservado, t1.exibirCamposMetrosQuadradosOrcamento, t1.exibirQuantidadePorCaixaOrcamento,
+    t1.numeroControleFCI, t1.precoFormatado, t1.produtoMarketplace, t1.quantidadeEntradaAtacado,
+    t1.quantidadeMetrosCaixa, t1.solicitarInformacoesAdicionais, t1.tipoAtacadoAutomatico, t1.valorEntradaAtacado
+FROM produotos AS t1
+INNER JOIN produotos AS t2 ON t1.id = t2.id;

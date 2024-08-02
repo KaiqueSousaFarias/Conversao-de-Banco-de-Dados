@@ -1,0 +1,13 @@
+select p.PRO_COD as referencia, p.PRO_BARRA AS gtin, p.PRO_REF as cod_barra_alternativo, p.PRO_NOME AS nome, p.GRU_COD AS idSetor, p.PRO_UNI AS idUnidade,
+p.PRO_ST, p.PRO_ST2, p.PRO_CUSTO as valorCusto, p.PRO_VENDA as valorVenda, p.PRO_EST as estoqueAtual,
+p.PRO_CF as codigoNCM, p.PRO_PESO as produtoBalanca, p.PRO_CSO as csosn, p.PRO_CEST as codigoCEST,
+p.PRO_FRACIONADO
+from DSIAF006 AS p
+ORDER BY PRO_COD;
+
+
+#TABELA DE SETORES 
+DSIAF005
+
+#tabela de clientes
+DSIAF010

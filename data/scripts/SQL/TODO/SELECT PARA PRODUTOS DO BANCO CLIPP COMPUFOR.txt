@@ -1,0 +1,54 @@
+//PRODUTO
+
+SELECT te.ID_ESTOQUE AS referencia, te.DESCRICAO AS nome, te.PRC_CUSTO AS valorCusto, te.PRC_VENDA AS valorVenda, CASE te.UNI_MEDIDA
+	WHEN 'UN' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16
+	WHEN '' THEN 1
+WHEN NULL THEN 1
+END
+AS idUnidade, te.OBSERVACAO, tep.COD_BARRA AS gtin, tep.QTD_ATUAL AS estoqueAtual, tep.COD_NCM AS codigoNCM, CASE tep.CSOSN
+WHEN 102 THEN 1
+WHEN 500 THEN 2
+WHEN 300 THEN 3
+END AS idFiscal, tep.COD_CEST AS codigoCEST
+FROM TB_ESTOQUE AS te
+LEFT JOIN TB_EST_PRODUTO tep ON te.ID_ESTOQUE =tep.ID_IDENTIFICADOR;
+
+//CLIENTES
+
+select
+c.id_cliente,
+c.nome,
+c.end_cep as cep,
+c.end_lograd as logradouro,
+c.end_numero as numero,
+c.end_bairro as bairro,
+c.end_comple as complemento,
+ccd.nome as cidade,
+ccd.sigla_uf as UF,
+cpj.cnpj,
+cpj.insc_estad as IE,
+cpf.cpf,
+c.FONE_COMER AS telefoneComercial
+from tb_cliente as c
+left join tb_cli_pj as cpj
+ON c.id_cliente = cpj.id_cliente
+left join tb_cli_pf as cpf
+ON c.id_cliente = cpf.id_cliente
+left join TB_CIDADE_SIS as ccd
+ON c.id_cidade = ccd.id_cidade
+order by c.id_cliente;

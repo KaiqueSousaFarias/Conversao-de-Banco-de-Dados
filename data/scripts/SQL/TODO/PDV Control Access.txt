@@ -1,0 +1,7 @@
+SELECT mercadorias.codun AS referencia, nomeun AS nome, tipoun AS idUnidade, estoqueun AS estoqueAtual, depart AS observacao, grupo AS descricaoPDV, vendaun AS valorVenda, compra AS valorCompra, custoun AS valorCusto, ncm AS codigoNCM, cestnf AS codigoCEST, csncsosnnf AS idFiscal
+FROM mercadorias, mercadorias2
+WHERE mercadorias.codun = mercadorias2.codun AND prod_ativo = 'S';
+
+
+
+

@@ -1,0 +1,10 @@
+PRODUTOS
+
+SELECT ID as referencia, CODBARS as gtin, DESCRIPTION as nome, CSOSN as idFiscal, NCM as codigoNCM, PRICESALE as valorVenda, PRICEPURCHASE as valorCompra, PRICECOST as valorCusto
+FROM PRODUCT;
+
+
+CLIENTES
+
+SELECT NAME as nome, FANTASY as nomeFantasia, CGC as cnpj, ADDRESS as logradouro, "NUMBER" as numero, NEIGHBORHOOD as bairro, COMPLEMENT as complemento, CEP, PHONE as telefoneComercial, EMAIL as emailComercial, IERG as inscricaoEstadual
+FROM PEOPLE;

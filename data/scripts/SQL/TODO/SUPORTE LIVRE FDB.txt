@@ -1,0 +1,69 @@
+PRODUTOS
+
+SELECT
+	p.CODIGO AS referencia,
+	p.PRODUTO AS nome,
+	p.PRECOCUSTO AS valorCusto,
+	p.PRECOVENDA AS valorVenda,
+	p.ESTOQUE AS estoqueAtual,
+	p.NCM AS codigoNCM,
+	CASE p.CSOSN
+		WHEN 102 THEN 1
+		WHEN 500 THEN 2
+		WHEN 300 THEN 3
+	END
+	AS idFiscal,
+	CASE p."CEST"
+		WHEN 0 THEN NULL
+	END
+	AS codigoCEST,
+	p.CODBARRA AS gtin,
+CASE p.UNIDADE
+	WHEN 'UN' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16
+	WHEN '' THEN 1
+WHEN NULL THEN 1
+END AS idUnidade,
+g.GRUPO AS descricaoPDV,
+sg.SUBGRUPO AS descricaoEtiquetas,
+m.NOME AS observacao
+FROM C000025 AS p
+LEFT JOIN C000017 AS g
+ON p.CODGRUPO = g.CODIGO
+LEFT JOIN C000018 AS sg
+ON p.CODSUBGRUPO = sg.CODIGO
+LEFT JOIN C000019 AS m
+ON p.CODMARCA = m.CODIGO;
+
+PESSOAS
+
+SELECT
+    c.codigo AS observacao,
+    c.nome AS NOME,
+    c.apelido AS NOMEFANTASIA,
+    c.cpf AS CNPJ,
+    c.rg AS INSCRICAOESTADUAL,
+    c.endereco AS LOGRADOURO,
+    c.numero AS NUMERO,
+    c.complemento AS COMPLEMENTO,
+    c.bairro AS BAIRRO,
+    c.cep AS CEP,
+    c.telefone1 AS TELEFONECOMERCIAL,
+    c.cod_municipio_ibge AS CODIGOMUNICIPIO,
+    c.cidade AS CIDADE,
+    c.uf AS UF
+FROM c000007 c;

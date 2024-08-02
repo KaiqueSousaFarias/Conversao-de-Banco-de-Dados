@@ -1,0 +1,28 @@
+SELECT p.produto_codigo AS referencia, p.descricao AS nome, sg.descricao AS observacao,
+CASE un.descricao
+	WHEN 'UN' THEN 1
+	WHEN 'KG' THEN 2
+	WHEN 'LT' THEN 3
+	WHEN 'CX' THEN 4
+	WHEN 'DZ' THEN 5
+	WHEN 'FD' THEN 6
+	WHEN 'GL' THEN 7
+	WHEN 'GR' THEN 8
+	WHEN 'BD' THEN 9
+	WHEN 'MT' THEN 10
+	WHEN 'M2' THEN 11
+	WHEN 'M3' THEN 12
+	WHEN 'MG' THEN 13
+	WHEN 'ML' THEN 14
+	WHEN 'MM' THEN 15
+	WHEN 'PC' THEN 16
+	END AS idUnidade, p.inativo AS produtoInativo, p.qtd_estoque AS estoqueAtual, p.cod_ncm AS codigoNCM, p.preco_custo AS valorCusto, p.preco_venda AS valorVenda, CASE p.sit_trib_icms_simples_entrada
+	WHEN '500' THEN 2
+	WHEN '102' THEN 1
+	WHEN '300' THEN 3
+	END as idFiscal, p.cest, p.cean_trib AS gtin
+	FROM produto AS p
+	LEFT JOIN prod_unidade AS un
+	ON un.id_prod_unidade = p.id_prod_unidade
+	LEFT JOIN prod_subgrupo AS sg
+	ON sg.id_prod_subgrupo = p.id_prod_subgrupo;

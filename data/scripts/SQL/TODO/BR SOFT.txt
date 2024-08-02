@@ -1,0 +1,35 @@
+//PRODUTOS
+
+SELECT produto.idProduto AS referencia, gradeproduto.gtin, produto.descricao AS nome,  produto.ncm AS codigoNCM, produto.grupo AS observacao, produto.custoReal as valorCusto, produto.precoCompra AS valorCompra, gradeproduto.valorAvista AS valorVenda,produto.estoqueAtual, produto.estoqueMinimo, produto.estoqueMaximo, produto.prodBalanca, produto.cest AS codigoCEST, gradeproduto.unidade AS idUnidade
+FROM produto
+INNER JOIN gradeproduto
+ON produto.idProduto = gradeproduto.idProduto
+INNER JOIN marca
+ON marca.idmarca = produto.idmarca
+WHERE inativo = 'N' AND produto.estoqueAtual > 0;
+
+
+//PESSOA
+
+SELECT apelido_NomeFantasia AS nomeFantasia,
+nome_RazaoSocial AS nome,
+cnpj_Cpf AS cnpj,
+rg_inscricaoEstadual AS inscricaoEstadual,
+inscricaoMunicipal AS codigoMunicipio,
+cliente,
+fornecedor,
+email AS emailComercial,
+status,
+inativo,
+endereco1 AS logradouro,
+numero1 AS numero,
+bairro1 AS bairro,
+complemento1 AS complemento,
+quadra1,
+nomeCidade1 AS cidade,
+estado1 AS uf,
+cep1 AS cep,
+lote1,
+codMunIbge1 AS codigoMunicipio,
+CONCAT(fone1, ' ', obsFone1) AS contato
+FROM pessoa;

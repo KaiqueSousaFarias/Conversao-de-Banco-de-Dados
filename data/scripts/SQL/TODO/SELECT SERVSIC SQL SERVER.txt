@@ -1,0 +1,37 @@
+//PRODUTOS
+
+SELECT [CodInterno] AS gtin
+      ,[Produto] AS nome
+      ,[PrecoCompra] AS valorCompra
+      ,[PrecoCusto] AS valorCusto
+      ,[PrecoVenda] AS valorVenda
+      ,[Quantidade] AS estoqueAtual
+      ,[Unidade] AS idUnidade
+      ,[Trb_ICMS_CST] AS idFiscal
+      ,[CodBarra] AS referencia
+      ,[NCM] AS codigoNCM
+      ,[CEST] AS codigoCEST
+  FROM [Servsic].[dbo].[TABEST1]
+  WHERE [Inativo] = 0
+
+//PESSOAS
+
+SELECT 
+       [Nome]
+      ,[Endereco] AS lograoduro
+      ,[Bairro]
+      ,[Cidade]
+      ,[Estado] AS uf
+      ,[Cep]
+      ,[Telefone] AS telefoneComercial
+      ,[eMail] AS emailComercial
+      ,[CGC] AS cnpj
+      ,[Insc] AS inscricaoEstadual
+      ,[Identidade] AS registroGeral
+      ,[Cpf]
+      ,[FANTASIA_APELIDO] AS nomeFantasia
+      ,[ComplEnd] AS complemento
+      ,[Celular] AS celularComercial
+      ,[CodMunicipio] AS codigoMunicipio
+      ,[Numero]
+  FROM [SERVSIC ].[dbo].[TABCLI]

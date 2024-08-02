@@ -1,0 +1,17 @@
+PRODUTO
+
+SELECT e.CODIGO AS gtin, e.BARRAS AS referencia, e.DESCRICAO AS nome, e.UND AS idunidade, e.QTD AS estoqueatual, e.PRECO_CUSTO AS valorCusto, e.PRECO_VENDA AS valorVenda, e.ST AS idFiscal, e.COD_NCM AS codigoNCM
+FROM ESTOQUE e
+WHERE SITUACAO = 'Ativo';
+
+CLIENTE
+
+SELECT NOME, FANTASIA as nomeFantasia, CNPJ_CNPF as CNPJ, IE_RG as inscricaoEstadual, ENDERECO as logradouro, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, UF, CEP, TELEFONE as contato, EMAIL as emailComercial
+FROM CLIENTE
+WHERE SITUACAO = 'Ativo';
+
+FORNECEDOR
+
+SELECT NOME, FANTASIA as nomeFantasia, CNPJ_CNPF as CNPJ, IE_RG as inscricaoEstadual, ENDERECO as logradouro, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, UF, CEP, TELEFONE as contato, EMAIL as emailComercial
+FROM FORNECEDOR
+WHERE SITUACAO = 'Ativo';

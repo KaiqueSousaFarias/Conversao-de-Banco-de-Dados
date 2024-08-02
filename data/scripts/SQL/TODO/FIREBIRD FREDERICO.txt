@@ -1,0 +1,7 @@
+
+
+
+CLIENTES
+
+SELECT NOME_CLI AS nome, ENDRES_CLI AS logradouro, BAIRES_CLI AS bairro, CIDRES_CLI AS cidade, ESTRES_CLI AS uf, CEPRES_CLI AS cep, TELRES_CLI AS telefoneComercial, CNPJ_CLI AS cnpj, DOC_CLI AS registroGeral, INSC_ESTADUAL AS inscricaoEstadual, NUMRES_CLI AS numero, CODIGO_IBGE AS codigoMunicipio, EMAIL_CLI AS emailComercial
+FROM CLIENTE;

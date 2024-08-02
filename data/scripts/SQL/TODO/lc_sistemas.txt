@@ -1,0 +1,33 @@
+IP:127.0.0.1
+DB:lc_sistemas
+USER:root
+KEY:111
+PORT:3306
+TERMINAL_TIPO:SRV
+ID_EMPRESA_PADRAO:1
+------------------------------
+
+SELECT
+p.id AS referencia,
+p.codigo_barras AS gtin,
+UPPER(p.nome) AS nome,
+CASE cst.codigotributario
+WHEN 102 THEN 1
+WHEN 500 THEN 2
+END AS idFiscal,
+ncm.codigo AS codigoNCM,
+cest.cest AS codigoCEST,
+p.preco_custo AS valorCusto,
+p.preco_venda AS valorVenda,
+p.margem_lucro AS markup,
+estoque AS estoqueAtual
+FROM produto AS p
+LEFT JOIN unidade AS u
+ON u.id = p.id_unidade
+LEFT JOIN cst
+ON cst.id = p.id_cst
+LEFT JOIN ncm
+ON ncm.id = id_ncm
+LEFT JOIN cest
+ON cest.id = id_cest
+WHERE p.ativo = 1;
