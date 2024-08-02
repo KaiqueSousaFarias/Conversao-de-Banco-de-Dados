@@ -6,8 +6,8 @@
 ### Como Importar Arquivo CSV no Excel:
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <p>Siga o passo a passo das imagens:</p>
-  <img src="../../Conversao-Banco-Dados-HERA/images/Tutorial-Importacao/CSV/1.png" alt="Imagem 1" style="width: 100rem; height: auto;">
-  <img src="../../Conversao-Banco-Dados-HERA/images/Tutorial-Importacao/CSV/2.png" alt="Imagem 2" style="width: 100rem; height: auto;">
+  <img src="../../Conversao-de-Banco-de-Dados/images/Tutorial-Importacao/CSV/1.png" alt="Imagem 1" style="width: 100rem; height: auto;">
+  <img src="../../Conversao-de-Banco-de-Dados/images/Tutorial-Importacao/CSV/2.png" alt="Imagem 2" style="width: 100rem; height: auto;">
   <p>Insira o delimitador, ou seja, insira o caractere que informa o limite entre cada dado.</p>
   <img src="../../Conversao-Banco-Dados-HERA/images/Tutorial-Importacao/CSV/3.png" alt="Imagem 3" style="width: 100rem; height: auto;">
   <p>Marque tudo como Texto.</p>
