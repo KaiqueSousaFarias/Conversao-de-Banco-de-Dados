@@ -9,7 +9,7 @@
   <p align="center">
     Este documento fornece um guia passo a passo para a conversão de um banco de dados Excel para os sistemas utilizados pelo Gestão Fácil.
     <br />
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><strong>Explore a Documentação »</strong></a>
+    <a href="/docs/README.md" target="_blank"><strong>Explore a Documentação »</strong></a>
     <br />
     <br />
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Ver Demonstração</a>
@@ -37,18 +37,14 @@
     - [Análise do Banco de Dados](#32-análise-do-banco-de-dados)
     - [Armazenamento e Conversão](#33-armazenamento-e-conversão)
   - [Finalização](#4-finalização)
-- [Tipos de Banco](#tipos-de-banco)
-  - [Importação CSV](../Conversao-Banco-Dados-HERA/Conversao/CSV.md)
-  - [Importação TEXTO](../Conversao-Banco-Dados-HERA/Conversao/TEXTO.md)
-- [Execute os seguintes comandos](#execute-os-seguintes-comandos)
-- [Verificações e Testes](CSV.md)
+- [Extensões de Banco](#extensões-de-banco)
 - [License](#license)
 - [Contato](#contato)
 
 ## Sobre o Projeto
 
 <div align="center">
-<img src="images/hera.png" alt="Logo HERA Sistemas" width="auto" height="60rem">
+<img src="images/HERA.png" alt="Logo HERA Sistemas" width="auto" height="60rem">
 <img src="images/GestaoFacil.png" alt="Logo Gestão Fácil" width="auto" height="60rem">
 <img src="images/pdv.png" alt="Logo Ponto de Venda" width="auto" height="60rem">
 </div>
@@ -70,8 +66,8 @@ Com nossa solução, você poderá realizar migrações de dados com precisão e
 * Teste.
 
 ### Manuais para Revenda
-* [Download Documento de Conversão de Banco de Dados](https://www.dropbox.com/scl/fi/9d7oba1hjj5dmtp024caw/Convers-o-de-Banco-de-Dados.pdf?rlkey=5za478hgzcwecemxti9h754mn&dl=0)
-* [Download Resumo do Documento de Conversão de Banco de Dados](https://www.dropbox.com/scl/fi/bwvh2b7zyqh0w9pmotq00/Resumo-do-Manual-de-Convers-o-de-Banco-de-Dados.pdf?rlkey=r0pepqxd3iardoekpseath0es&dl=0)
+* [Download Documento Sobre Conversão de Banco de Dados](https://www.dropbox.com/scl/fi/9d7oba1hjj5dmtp024caw/Convers-o-de-Banco-de-Dados.pdf?rlkey=5za478hgzcwecemxti9h754mn&dl=0)
+* [Download Resumo do Documento Sobre Conversão de Banco de Dados](https://www.dropbox.com/scl/fi/bwvh2b7zyqh0w9pmotq00/Resumo-do-Manual-de-Convers-o-de-Banco-de-Dados.pdf?rlkey=r0pepqxd3iardoekpseath0es&dl=0)
 
 <br>
 
@@ -148,9 +144,9 @@ Quando o revendedor entrar em contato:
 
 Pergunte sobre os dados necessários, comumente incluindo:
 
-- Produtos
-- Clientes
-- Fornecedores
+- `Produtos`
+- `Clientes`
+- `Fornecedores`
 
 Caso o cliente solicite dados adicionais (códigos auxiliares, grade, contas a pagar/receber), informe que será necessária uma análise detalhada e que o prazo de entrega será ajustado após a verificação.
 
@@ -182,9 +178,9 @@ Após a conclusão da conversão, entre em contato com o cliente para informar q
 
 **Nota:** Mantenha uma comunicação clara e transparente com o cliente durante todo o processo para garantir que todas as expectativas sejam atendidas e para evitar problemas futuros.
 
-## Tipos de Banco
+## Extensões de Banco
 
-| Extensões | Info |
+| Extensões | Descrição |
 |-------------|-------------|
 | .csv | Valores Separados por virgula |
 | .txt | Texto |
@@ -192,7 +188,7 @@ Após a conclusão da conversão, entre em contato com o cliente para informar q
 | .mdb | Access |
 | .sql | MySQL / MariaDB / SQLite |
 | .mdf .bak | SQL Server |
-| .fdb .fbk, .gdb | Firebird |
+| .fdb .fbk, .gdb, .gbak | Firebird |
 | .backup | Postgres |
 | .db | Paradox |
 
@@ -204,4 +200,4 @@ Distributed under the MIT License. See [LICENSE](/LICENSE) for more information.
 
 ### Kaique Sousa Farias
 - [LinkedIn](https://www.linkedin.com/in/kaique-sousa-farias/)
-- [GitHub](https://github.com/your_username/repo_name)
+- [GitHub](https://github.com/KaiqueSousaFarias/Conversao-de-Banco-de-Dados)
