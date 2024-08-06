@@ -34,10 +34,10 @@
     - [Coleta de Dados Necessários](#22-coleta-de-dados-necessários)
   - [Verificação e Conversão de Dados](#3-verificação-e-conversão-de-dados)
     - [Localização do Banco de Dados](#31-localização-do-banco-de-dados)
+    - [Extensões de Banco](#extensões-de-banco)
     - [Análise do Banco de Dados](#32-análise-do-banco-de-dados)
     - [Armazenamento e Conversão](#33-armazenamento-e-conversão)
   - [Finalização](#4-finalização)
-- [Extensões de Banco](#extensões-de-banco)
 - [License](#license)
 - [Contato](#contato)
 
@@ -159,6 +159,20 @@ Caso o cliente solicite dados adicionais (códigos auxiliares, grade, contas a p
 - **Verifique se o sistema do cliente permite exportação em formatos como Excel, JSON ou XML.**
 - **Caso contrário, localize o banco de dados no sistema do cliente.** Procure nas pastas do sistema por nomes como "Data", "Dados", "Banco", "Backup", "Server" ou na pasta raiz do sistema.
 
+#### Extensões de Banco
+
+| Extensões | Descrição |
+|-------------|-------------|
+| .csv | Valores Separados por virgula |
+| .txt | Texto |
+| .xls .xlsx | Excel |
+| .mdb | Access |
+| .sql | MySQL / MariaDB / SQLite |
+| .mdf .bak | SQL Server |
+| .fdb .fbk, .gdb, .gbak | Firebird |
+| .backup | Postgres |
+| .db | Paradox |
+
 #### **3.2. Análise do Banco de Dados**
 
 1. **Analise as tabelas e campos para identificar os dados necessários.**
@@ -177,20 +191,6 @@ Caso o cliente solicite dados adicionais (códigos auxiliares, grade, contas a p
 Após a conclusão da conversão, entre em contato com o cliente para informar que o processo foi finalizado e disponibilize os dados convertidos conforme o combinado.
 
 **Nota:** Mantenha uma comunicação clara e transparente com o cliente durante todo o processo para garantir que todas as expectativas sejam atendidas e para evitar problemas futuros.
-
-## Extensões de Banco
-
-| Extensões | Descrição |
-|-------------|-------------|
-| .csv | Valores Separados por virgula |
-| .txt | Texto |
-| .xls .xlsx | Excel |
-| .mdb | Access |
-| .sql | MySQL / MariaDB / SQLite |
-| .mdf .bak | SQL Server |
-| .fdb .fbk, .gdb, .gbak | Firebird |
-| .backup | Postgres |
-| .db | Paradox |
 
 ## License
 
