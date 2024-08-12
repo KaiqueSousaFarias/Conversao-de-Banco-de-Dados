@@ -223,13 +223,13 @@ Após a conclusão da conversão, entre em contato com o cliente para informar q
 |-------------|-------------|
 | [MySQL-Front](Exportação/MySQL-Front.md) | Manual de Exportação utilizando MySQL-Front. |
 | [DBeaver](Exportação/DBeaver.md) | Manual de Exportação do DBeaver. |
-| [ILLI STORE](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema ILLI STORE. |
-| [AUTOMATOP](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema Automatop. |
-| [CHS](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema CHS. |
-| [IDEIA](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema IDEIA. |
-| [MULTIPDV](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema MULTIPDV. |
-| [SIGMA](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema SIGMA. |
-| [XMENU](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema XMENU. |
+| [ILLI STORE](https://www.dropbox.com/scl/fi/l9ptxi2ehldbom5yw7ifh/ILLI-STORE.mp4?rlkey=cv1ckfvh9mledk1rxxm6h7y9s&dl=0) | Vídeo de Exportação do Sistema ILLI STORE. |
+| [AUTOMATOP](https://www.dropbox.com/scl/fi/22rctmona7wqw9q8xvvj6/Automatop.mp4?rlkey=tlmcklhlitn99swc6acdhxruj&dl=0) | Vídeo de Exportação do Sistema Automatop. |
+| [CHS](https://www.dropbox.com/scl/fi/hn7uliermknowa3j17jom/CHS.mp4?rlkey=cpkkc0v3ykdv9316ehrpnqsyo&dl=0) | Vídeo de Exportação do Sistema CHS. |
+| [IDEIA](https://www.dropbox.com/scl/fi/j35hcgzk67pwdx4zypm5o/IDEIA.mp4?rlkey=quyyj1jqu6hmy8p1rtpewuxx4&dl=0) | Vídeo de Exportação do Sistema IDEIA. |
+| [MULTIPDV](https://www.dropbox.com/scl/fi/uo9ps4gdulgciv0kris32/MULTIPDV.mp4?rlkey=70jckijkdfk7rop8ocs6m57no&dl=0) | Vídeo de Exportação do Sistema MULTIPDV. |
+| [SIGMA](https://www.dropbox.com/scl/fi/up781x49ckv8eva1o0hua/SIGMA.mp4?rlkey=p8aripp8diqewbge66r9w7ah1&dl=0) | Vídeo de Exportação do Sistema SIGMA. |
+| [XMENU](https://www.dropbox.com/scl/fi/dy1ffloxcuv3in376nhsc/XMENU.mp4?rlkey=okdzt4bp8okf2zz6b6esutn81&dl=0) | Vídeo de Exportação do Sistema XMENU. |
 
 
 ### Verificações
