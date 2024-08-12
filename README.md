@@ -9,7 +9,7 @@
   <p align="center">
     Este documento fornece um guia passo a passo para a conversão de um banco de dados Excel para os sistemas utilizados pelo Gestão Fácil.
     <br />
-    <a href="/docs/README.md" target="_blank"><strong>Explore a Documentação »</strong></a>
+    <a href="#sumário"><strong>Explore a Documentação »</strong></a>
     <br />
     <br />
     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Ver Demonstração</a>
@@ -38,6 +38,12 @@
     - [Análise do Banco de Dados](#32-análise-do-banco-de-dados)
     - [Armazenamento e Conversão](#33-armazenamento-e-conversão)
   - [Finalização](#4-finalização)
+  - [Repositório](#5-repositor)
+    - [Uso de Ferramentas](#uso-de-ferramentas)
+    - [Importação](#importação)
+    - [Exportação](#exportação)
+    - [Verificações](#verificações)
+    - [Testes](#testes)
 - [License](#license)
 - [Contato](#contato)
 
@@ -191,6 +197,55 @@ Caso o cliente solicite dados adicionais (códigos auxiliares, grade, contas a p
 Após a conclusão da conversão, entre em contato com o cliente para informar que o processo foi finalizado e disponibilize os dados convertidos conforme o combinado.
 
 **Nota:** Mantenha uma comunicação clara e transparente com o cliente durante todo o processo para garantir que todas as expectativas sejam atendidas e para evitar problemas futuros.
+
+### **5. Repositório**
+
+# Repositório da Documentação
+
+### Uso de Ferramentas
+
+| Repositório | Informação |
+|-------------|-------------|
+| [DBeaver](Ferramentas/DBeaver.md) | Manual de como utilizar o DBeaver. |
+
+### Importação
+
+| Repositório | Informação |
+|-------------|-------------|
+| [CSV](Importação/CSV.md) | Manual de Importação de arquivos CSV no Excel. |
+| [TEXTO](Importação/TEXTO.md) | Manual de Importação de arquivos tipo Texto no Excel. |
+| [MySQL-Front](Importação/MySQL-Front.md) | Manual de Importação utilizando MySQL-Front. |
+| [Descrição da Imagem](caminho/para/imagem.extensao) | Este é o texto ao lado da imagem. |
+
+### Exportação
+
+| Repositório | Informação |
+|-------------|-------------|
+| [MySQL-Front](Exportação/MySQL-Front.md) | Manual de Exportação utilizando MySQL-Front. |
+| [DBeaver](Exportação/DBeaver.md) | Manual de Exportação do DBeaver. |
+| [ILLI STORE](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema ILLI STORE. |
+| [AUTOMATOP](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema Automatop. |
+| [CHS](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema CHS. |
+| [IDEIA](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema IDEIA. |
+| [MULTIPDV](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema MULTIPDV. |
+| [SIGMA](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema SIGMA. |
+| [XMENU](/data/Videos/Exportando_Banco/) | Vídeo de Exportação do Sistema XMENU. |
+
+
+### Verificações
+
+| Repositório | Informação |
+|-------------|-------------|
+| [Descrição da Imagem](caminho/para/imagem.extensao) | Este é o texto ao lado da imagem. |
+
+### Testes
+
+| Repositório | Informação |
+|-------------|-------------|
+| [Descrição da Imagem](caminho/para/imagem.extensao) | Este é o texto ao lado da imagem. |
+
+
+
 
 ## License
 
