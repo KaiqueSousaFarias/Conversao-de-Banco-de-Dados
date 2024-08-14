@@ -70,4 +70,4 @@ Se você encontrar dificuldades durante o processo de importação ou se precisa
 
 ---
 
-Se precisar de mais informações ou tiver alguma outra dúvida, estou à disposição!
+* [Voltar para a Documentação](/README.md)

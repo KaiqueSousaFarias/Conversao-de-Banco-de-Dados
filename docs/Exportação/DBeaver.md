@@ -69,3 +69,7 @@ Esta documentação descreve o processo passo a passo para exportar dados de uma
 - **SQL Editor**: Para exportar resultados de uma consulta específica, você pode executar a consulta no SQL Editor e seguir os mesmos passos para exportar os resultados da consulta.
 
 Seguindo esses passos, você conseguirá exportar dados do DBeaver de forma eficiente para o formato de arquivo desejado. Veja em [DBeaver](/docs/Ferramentas/DBeaver.md).
+
+---
+
+* [Voltar para a Documentação](/README.md)

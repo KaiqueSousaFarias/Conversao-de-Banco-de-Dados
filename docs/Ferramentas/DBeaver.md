@@ -96,4 +96,4 @@
 
 ---
 
-* [Voltar para a Documentação](../README.md)
+* [Voltar para a Documentação](/README.md)

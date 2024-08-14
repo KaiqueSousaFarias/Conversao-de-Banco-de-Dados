@@ -126,3 +126,8 @@ Agora que o SQL Server Express está instalado, você pode utilizá-lo para dese
 ---
 
 Este guia cobre o básico para a instalação do SQL Server Express no Windows. Para configurações mais avançadas ou instruções sobre outras plataformas, consulte a [documentação oficial do SQL Server](https://docs.microsoft.com/pt-br/sql/sql-server/).
+
+
+---
+
+* [Voltar para a Documentação](/README.md)

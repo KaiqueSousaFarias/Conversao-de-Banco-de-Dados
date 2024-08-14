@@ -70,4 +70,4 @@ Se você encontrar dificuldades durante o processo de exportação ou se precisa
 
 ---
 
-Se precisar de mais alguma coisa, é só avisar!
+* [Voltar para a Documentação](/README.md)

@@ -62,3 +62,7 @@ O banco de dados será desanexado, e você poderá acessar o arquivo .mdf (e o a
    #### Normalmente nesse caminho:
 
       C:\Program Files\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQL\DATA
+
+---
+
+* [Voltar para a Documentação](/README.md)

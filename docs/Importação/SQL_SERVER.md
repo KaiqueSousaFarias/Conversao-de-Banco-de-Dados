@@ -80,3 +80,7 @@ Este manual descreve o processo para importar um banco de dados no SQL Server an
 O SQL Server anexará o banco de dados e ele aparecerá na lista de bancos de dados, pronto para uso.
 
 ![](/images/SQL_SERVER/Importação/55.png)
+
+---
+
+* [Voltar para a Documentação](/README.md)
