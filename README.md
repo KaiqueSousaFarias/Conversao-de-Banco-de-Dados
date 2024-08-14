@@ -206,23 +206,27 @@ Após a conclusão da conversão, entre em contato com o cliente para informar q
 
 | Repositório | Informação |
 |-------------|-------------|
-| [DBeaver](Ferramentas/DBeaver.md) | Manual de como utilizar o DBeaver. |
+| [DBeaver](docs/Ferramentas/DBeaver.md) | Manual de como utilizar e instalar o DBeaver. |
+| [SQL SERVER](docs/Ferramentas/SQLServer.md) | Manual de como utilizar e instalar SQL Server. |
+| [Descrição da Imagem](caminho/para/imagem.extensao) | Este é o texto ao lado da imagem. |
+| [Descrição da Imagem](caminho/para/imagem.extensao) | Este é o texto ao lado da imagem. |
+| [Descrição da Imagem](caminho/para/imagem.extensao) | Este é o texto ao lado da imagem. |
 
 ### Importação
 
 | Repositório | Informação |
 |-------------|-------------|
-| [CSV](Importação/CSV.md) | Manual de Importação de arquivos CSV no Excel. |
-| [TEXTO](Importação/TEXTO.md) | Manual de Importação de arquivos tipo Texto no Excel. |
-| [MySQL-Front](Importação/MySQL-Front.md) | Manual de Importação utilizando MySQL-Front. |
-| [Descrição da Imagem](caminho/para/imagem.extensao) | Este é o texto ao lado da imagem. |
+| [CSV](docs/Importação/CSV.md) | Manual de Importação de arquivos CSV no Excel. |
+| [TEXTO](docs/Importação/TEXTO.md) | Manual de Importação de arquivos tipo Texto no Excel. |
+| [MySQL-Front](docs/Importação/MySQL-Front.md) | Manual de Importação utilizando MySQL-Front. |
+| [SQL Server](docs/Importação/SQL_SERVER.md) | Manual de Importação utilizando SQL Server. |
 
 ### Exportação
 
 | Repositório | Informação |
 |-------------|-------------|
-| [MySQL-Front](Exportação/MySQL-Front.md) | Manual de Exportação utilizando MySQL-Front. |
 | [DBeaver](Exportação/DBeaver.md) | Manual de Exportação do DBeaver. |
+| [SQL Server](docs/Exportação/SQL_SERVER.md) | Manual de Exportação utilizando SQL Server. |
 | [ILLI STORE](https://www.dropbox.com/scl/fi/l9ptxi2ehldbom5yw7ifh/ILLI-STORE.mp4?rlkey=cv1ckfvh9mledk1rxxm6h7y9s&dl=0) | Vídeo de Exportação do Sistema ILLI STORE. |
 | [AUTOMATOP](https://www.dropbox.com/scl/fi/22rctmona7wqw9q8xvvj6/Automatop.mp4?rlkey=tlmcklhlitn99swc6acdhxruj&dl=0) | Vídeo de Exportação do Sistema Automatop. |
 | [CHS](https://www.dropbox.com/scl/fi/hn7uliermknowa3j17jom/CHS.mp4?rlkey=cpkkc0v3ykdv9316ehrpnqsyo&dl=0) | Vídeo de Exportação do Sistema CHS. |
@@ -256,3 +260,5 @@ Distributed under the MIT License. See [LICENSE](/LICENSE) for more information.
 ### Kaique Sousa Farias
 - [LinkedIn](https://www.linkedin.com/in/kaique-sousa-farias/)
 - [GitHub](https://github.com/KaiqueSousaFarias/Conversao-de-Banco-de-Dados)
+
+<img src="images/logotipo.png" alt="Logo da HERA SISTEMAS" width="auto" height="300rem" align="right">
