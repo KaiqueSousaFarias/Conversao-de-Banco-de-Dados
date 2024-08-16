@@ -83,4 +83,4 @@ O SQL Server anexará o banco de dados e ele aparecerá na lista de bancos de da
 
 ---
 
-* [Voltar para a Documentação](/README.md)
+* [Voltar para a Documentação Principal](/README.md)

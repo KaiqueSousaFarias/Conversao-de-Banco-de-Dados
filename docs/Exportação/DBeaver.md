@@ -72,4 +72,4 @@ Seguindo esses passos, você conseguirá exportar dados do DBeaver de forma efic
 
 ---
 
-* [Voltar para a Documentação](/README.md)
+* [Voltar para a Documentação Principal](/README.md)

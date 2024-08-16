@@ -70,4 +70,4 @@ Se você encontrar dificuldades durante o processo de exportação ou se precisa
 
 ---
 
-* [Voltar para a Documentação](/README.md)
+* [Voltar para a Documentação Principal](/README.md)

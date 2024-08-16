@@ -65,4 +65,4 @@ O banco de dados será desanexado, e você poderá acessar o arquivo .mdf (e o a
 
 ---
 
-* [Voltar para a Documentação](/README.md)
+* [Voltar para a Documentação Principal](/README.md)
