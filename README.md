@@ -42,6 +42,7 @@
     - [Uso de Ferramentas](#uso-de-ferramentas)
     - [Importação](#importação)
     - [Exportação](#exportação)
+    - [Converção](#convertendo-para-gestão-fácil)
     - [Verificações](#verificações)
     - [Testes](#testes)
 - [License](#license)
@@ -239,6 +240,13 @@ Após a conclusão da conversão, entre em contato com o cliente para informar q
 | [SIGMA](https://www.dropbox.com/scl/fi/up781x49ckv8eva1o0hua/SIGMA.mp4?rlkey=p8aripp8diqewbge66r9w7ah1&dl=0) | Vídeo de Exportação do Sistema SIGMA. |
 | [XMENU](https://www.dropbox.com/scl/fi/dy1ffloxcuv3in376nhsc/XMENU.mp4?rlkey=okdzt4bp8okf2zz6b6esutn81&dl=0) | Vídeo de Exportação do Sistema XMENU. |
 
+
+### Convertendo para Gestão Fácil
+
+| Repositório | Informação |
+|-------------|-------------|
+| [Banco de Dados](/data/Gestão%20Fácil/) | Pasta com Banco de dados. |
+| [Scripts](/data/scripts/Tratamento%20de%20Dados/) | Pasta com Scrits para Conversão. |
 
 ### Verificações
 

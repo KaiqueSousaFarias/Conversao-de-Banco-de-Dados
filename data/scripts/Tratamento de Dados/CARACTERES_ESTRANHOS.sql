@@ -1,4 +1,6 @@
-﻿UPDATE pessoas SET nomeFantasia = replace( nomeFantasia, 'ђ', '' ), nome = replace( nome, 'ђ', '' ), logradouro = replace( logradouro, 'ђ', '' ), bairro = replace( bairro, 'ђ', '' );
+﻿UPDATE pessoas SET nomeFantasia = replace( nomeFantasia, '�', '' ), nome = replace( nome, '�', '' ), logradouro = replace( logradouro, '�', '' ), complemento = replace( complemento, '�', '' );
+UPDATE pessoas SET nomeFantasia = replace( nomeFantasia, 'ｲ', '' ), nome = replace( nome, 'ｲ', '' ), logradouro = replace( logradouro, 'ｲ', '' ), bairro = replace( bairro, 'ｲ', '' );
+UPDATE pessoas SET nomeFantasia = replace( nomeFantasia, '±', '' ), nome = replace( nome, '±', '' ), logradouro = replace( logradouro, '±', '' ), bairro = replace( bairro, '±', '' );
 UPDATE pessoas SET nomeFantasia = replace( nomeFantasia, 'Й', '' ), nome = replace( nome, 'Й', '' ), logradouro = replace( logradouro, 'Й', '' ), bairro = replace( bairro, 'Й', '' );
 UPDATE pessoas SET nomeFantasia = replace( nomeFantasia, 'Ђ', '' ), nome = replace( nome, 'Ђ', '' ), logradouro = replace( logradouro, 'Ђ', '' ), bairro = replace( bairro, 'Ђ', '' );
 UPDATE pessoas SET nomeFantasia = replace( nomeFantasia, '│', '' ), nome = replace( nome, '│', '' ), logradouro = replace( logradouro, '│', '' ), bairro = replace( bairro, '│', '' );
@@ -165,3 +167,5 @@ UPDATE produotos SET descricaopdv = replace( descricaopdv, 'Љ', '' ), nome = re
 UPDATE produotos SET descricaopdv = replace( descricaopdv, 'Ò', '' ), nome = replace( nome, 'Ò', '' ), descricaoEtiquetas = replace( descricaoEtiquetas, 'Ò', '' );
 UPDATE produotos SET descricaopdv = replace( descricaopdv, 'Μ', '' ), nome = replace( nome, 'Μ', '' ), descricaoEtiquetas = replace( descricaoEtiquetas, 'Μ', '' );
 UPDATE produotos SET descricaopdv = replace( descricaopdv, 'İ', '' ), nome = replace( nome, 'İ', '' ), descricaoEtiquetas = replace( descricaoEtiquetas, 'İ', '' );
+UPDATE produotos SET descricaopdv = replace( descricaopdv, '±', '' ), nome = replace( nome, '±', '' ), descricaoEtiquetas = replace( descricaoEtiquetas, '±', '' );
+UPDATE produotos SET descricaopdv = replace( descricaopdv, 'ｲ', '' ), nome = replace( nome, 'ｲ', '' ), descricaoEtiquetas = replace( descricaoEtiquetas, 'ｲ', '' );

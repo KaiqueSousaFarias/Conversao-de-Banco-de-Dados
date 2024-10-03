@@ -1,0 +1,1 @@
+=SE(NÚM.CARACT(K2) - NÚM.CARACT(SUBSTITUIR(K2;".";"")) = 2; SUBSTITUIR(K2;".";"";1); K2)

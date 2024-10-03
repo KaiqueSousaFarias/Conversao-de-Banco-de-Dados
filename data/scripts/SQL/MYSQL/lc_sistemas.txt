@@ -20,7 +20,29 @@ cest.cest AS codigoCEST,
 p.preco_custo AS valorCusto,
 p.preco_venda AS valorVenda,
 p.margem_lucro AS markup,
-estoque AS estoqueAtual
+estoque AS estoqueAtual,
+CASE u.descricao
+WHEN 'UN' THEN 1
+WHEN 'UND' THEN 1
+WHEN 'KG' THEN 2
+WHEN 'LT' THEN 3
+WHEN 'CX' THEN 4
+WHEN 'DZ' THEN 5
+WHEN 'FD' THEN 6
+WHEN 'GL' THEN 7
+WHEN 'GR' THEN 8
+WHEN 'BD' THEN 9
+WHEN 'MT' THEN 10
+WHEN 'M2' THEN 11
+WHEN 'M3' THEN 12
+WHEN 'MG' THEN 13
+WHEN 'ML' THEN 14
+WHEN 'MM' THEN 15
+WHEN 'PC' THEN 16
+WHEN 'PCT' THEN 16
+ELSE 1
+END
+AS idUnidade
 FROM produto AS p
 LEFT JOIN unidade AS u
 ON u.id = p.id_unidade
