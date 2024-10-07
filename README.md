@@ -248,19 +248,27 @@ Após a conclusão da conversão, entre em contato com o cliente para informar q
 | [Banco de Dados](/data/Gestão%20Fácil/) | Pasta com Banco de dados. |
 | [Scripts](/data/scripts/Tratamento%20de%20Dados/) | Pasta com Scrits para Conversão. |
 
-### Verificações
+### Verificações Gerais
 
-| Repositório | Informação |
-|-------------|-------------|
-| [Descrição da Imagem](caminho/para/imagem.extensao) | Este é o texto ao lado da imagem. |
+- [x] Verificar se a Quantidade dos Dados Cadastrados são iguais ao do Excel (DB Tratado).
+- [x] Verifique se tem Nomes e Códigos de Produtos e Pessoas com Caracteres Estranhos
+- [x] Verificar se está Listando Produtos
+  - [x] Verificar se está Listando Códigos Auxiliares
+  - [x] Verificar os Valores de Compra, Custo, Venda, Venda Atacado
+  - [x] Verifique se o Código Interno está igual ao ID no Banco de Dados
+- [x] Verificar se está Listando Pessoas (Cliente e Fornecedor)
+- [x] Verificar se está Listando Contas à Pagar e Receber
 
 ### Testes
 
-| Repositório | Informação |
-|-------------|-------------|
-| [Descrição da Imagem](caminho/para/imagem.extensao) | Este é o texto ao lado da imagem. |
-
-
+- [x] Cadastre um Produto
+  - [x] Cadastre um Código Auxiliar
+  - [x] Altere alguns Produtos e Códigos Auxiliares
+- [x] Cadastre uma Pessoa
+  - [x] Altere algumas Pessoas
+- [x] Cadastre uma Conta à Pagar e Receber
+  - [x] Cadastre um Tipo de Conta e Banco
+- [x] Envie carga para o PDV e verifique se haverá carga em pendência.
 
 
 ## License
